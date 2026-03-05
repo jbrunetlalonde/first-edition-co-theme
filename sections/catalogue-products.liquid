@@ -1,0 +1,76 @@
+{%- paginate collections[section.settings.source_collection].products by 24 -%}
+<section class="catalogue-products">
+  <div class="coll-toolbar">
+    <span class="catalogue-results">{{ collections[section.settings.source_collection].products_count }} products</span>
+    <div class="coll-sort">
+      <label for="catalogue-sort-{{ section.id }}" class="visually-hidden">Sort by</label>
+      <select id="catalogue-sort-{{ section.id }}" class="coll-sort-select" onchange="window.location.href=this.value">
+        {%- for option in collections[section.settings.source_collection].sort_options -%}
+          <option value="{{ option.url }}" {% if collections[section.settings.source_collection].sort_by == option.value %}selected{% endif %}>{{ option.name }}</option>
+        {%- endfor -%}
+      </select>
+    </div>
+  </div>
+
+  <div class="products-grid">
+    {%- for product in collections[section.settings.source_collection].products -%}
+      <div class="product-card">
+        <a href="{{ product.url }}" class="product-card-link">
+          <div class="product-img-wrap product-bg-{{ forloop.index | modulo: 4 | plus: 1 }}">
+            <div class="product-holo"></div>
+            {%- if product.featured_image != blank -%}
+              <img
+                src="{{ product.featured_image | image_url: width: 400 }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                loading="lazy"
+                width="400"
+                height="533"
+              >
+            {%- endif -%}
+          </div>
+          <div class="product-info">
+            <div class="product-set">{{ product.type }}</div>
+            <div class="product-name">{{ product.title }}</div>
+            <div class="product-condition">{{ product.metafields.custom.condition }}</div>
+            <div class="product-bottom">
+              <span class="product-price">{{ product.price | money }}</span>
+              {%- if product.metafields.custom.badge != blank -%}
+                <span class="product-badge">{{ product.metafields.custom.badge }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </a>
+        <button type="button" class="product-add" data-product-id="{{ product.variants.first.id }}">
+          + Add to cart
+        </button>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if paginate.pages > 1 -%}
+    <nav class="coll-pagination" aria-label="Pagination">
+      {{ paginate | default_pagination: next: '&rarr;', previous: '&larr;' }}
+    </nav>
+  {%- endif -%}
+</section>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Catalogue products",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "source_collection",
+      "label": "Collection handle",
+      "info": "Enter the handle of the collection to display (e.g. trading-cards, retro-games)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Catalogue products"
+    }
+  ]
+}
+{% endschema %}

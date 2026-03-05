@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "hero": {
+      "type": "catalogue-hero",
+      "settings": {
+        "eyebrow": "Retro Video Games",
+        "heading": "<p>Retro <em>catalogue</em></p>",
+        "description": "Cartridges, consoles and accessories from the golden era. SNES, N64, Game Boy, PS1 and more.",
+        "theme": "catalogue-hero--retro"
+      }
+    },
+    "collections": {
+      "type": "catalogue-collections",
+      "settings": {
+        "heading": "Shop by platform"
+      },
+      "blocks": {
+        "snes": { "type": "collection", "settings": { "label": "SNES" } },
+        "n64": { "type": "collection", "settings": { "label": "Nintendo 64" } },
+        "gb": { "type": "collection", "settings": { "label": "Game Boy" } },
+        "ps1": { "type": "collection", "settings": { "label": "PlayStation 1" } },
+        "nes": { "type": "collection", "settings": { "label": "NES" } },
+        "genesis": { "type": "collection", "settings": { "label": "Sega Genesis" } }
+      },
+      "block_order": ["snes", "n64", "gb", "ps1", "nes", "genesis"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Get notified on rare finds.",
+        "description": "Retro game restocks, new arrivals and collector deals."
+      }
+    }
+  },
+  "order": ["hero", "collections", "newsletter"]
+}

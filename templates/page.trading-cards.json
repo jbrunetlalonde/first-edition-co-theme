@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "hero": {
+      "type": "catalogue-hero",
+      "settings": {
+        "eyebrow": "Trading Cards",
+        "heading": "<p>TCG <em>catalogue</em></p>",
+        "description": "Browse our complete collection of trading cards. Pokemon, Magic: The Gathering, One Piece, Yu-Gi-Oh!, Lorcana and more.",
+        "theme": "catalogue-hero--tcg"
+      }
+    },
+    "collections": {
+      "type": "catalogue-collections",
+      "settings": {
+        "heading": "Shop by universe"
+      },
+      "blocks": {
+        "pokemon": { "type": "collection", "settings": { "label": "Pokemon TCG" } },
+        "magic": { "type": "collection", "settings": { "label": "Magic: The Gathering" } },
+        "onepiece": { "type": "collection", "settings": { "label": "One Piece TCG" } },
+        "yugioh": { "type": "collection", "settings": { "label": "Yu-Gi-Oh!" } },
+        "lorcana": { "type": "collection", "settings": { "label": "Lorcana" } },
+        "dbs": { "type": "collection", "settings": { "label": "Dragon Ball Super" } }
+      },
+      "block_order": ["pokemon", "magic", "onepiece", "yugioh", "lorcana", "dbs"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Never miss a drop.",
+        "description": "New TCG arrivals, restocks and exclusive subscriber deals."
+      }
+    }
+  },
+  "order": ["hero", "collections", "newsletter"]
+}

@@ -1,0 +1,54 @@
+<section class="catalogue-hero {{ section.settings.theme }}">
+  <div class="catalogue-hero-bg" aria-hidden="true"></div>
+  <div class="catalogue-hero-overlay"></div>
+  <div class="catalogue-hero-content">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h1 class="section-title catalogue-hero-title">{{ section.settings.heading }}</h1>
+    {%- if section.settings.description != blank -%}
+      <p class="catalogue-hero-desc">{{ section.settings.description }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Catalogue hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Browse",
+      "label": "Eyebrow text"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>All <em>products</em></p>",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "select",
+      "id": "theme",
+      "default": "catalogue-hero--tcg",
+      "label": "Theme",
+      "options": [
+        { "value": "catalogue-hero--tcg", "label": "Trading Cards" },
+        { "value": "catalogue-hero--retro", "label": "Retro Games" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Catalogue hero"
+    }
+  ]
+}
+{% endschema %}

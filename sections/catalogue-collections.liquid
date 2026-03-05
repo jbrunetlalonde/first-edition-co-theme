@@ -1,0 +1,80 @@
+<section class="catalogue-collections">
+  {%- if section.settings.heading != blank -%}
+    <h2 class="catalogue-collections-title">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+  <div class="catalogue-collections-grid">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.collection.url }}" class="catalogue-coll-card" {{ block.shopify_attributes }}>
+        {%- if block.settings.collection.image != blank -%}
+          <img
+            class="catalogue-coll-img"
+            src="{{ block.settings.collection.image | image_url: width: 600, format: 'png' }}"
+            alt="{{ block.settings.collection.title | escape }}"
+            loading="lazy"
+            width="300"
+            height="200"
+          >
+        {%- elsif block.settings.image != blank -%}
+          <img
+            class="catalogue-coll-img"
+            src="{{ block.settings.image | image_url: width: 600, format: 'png' }}"
+            alt="{{ block.settings.label | escape }}"
+            loading="lazy"
+            width="300"
+            height="200"
+          >
+        {%- endif -%}
+        <div class="catalogue-coll-info">
+          <h3 class="catalogue-coll-name">{{ block.settings.label | default: block.settings.collection.title }}</h3>
+          {%- if block.settings.collection != blank -%}
+            <span class="catalogue-coll-count">{{ block.settings.collection.products_count }} products</span>
+          {%- endif -%}
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Catalogue collections",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Shop by category",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Custom label (optional)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Custom image (optional)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Catalogue collections"
+    }
+  ]
+}
+{% endschema %}
