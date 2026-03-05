@@ -1,0 +1,102 @@
+<section class="retro">
+  <div class="section-header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+    </div>
+    {%- if section.settings.link_label != blank -%}
+      <a href="{{ section.settings.link_url }}" class="section-link">{{ section.settings.link_label }}</a>
+    {%- endif -%}
+  </div>
+  <div class="retro-grid">
+    {%- for product in section.settings.collection.products limit: 4 -%}
+      <div class="game-card">
+        <a href="{{ product.url }}" class="product-card-link">
+          <div class="game-img-wrap game-bg-{{ forloop.index | modulo: 4 | plus: 1 }}">
+            {%- if product.featured_image != blank -%}
+              <img
+                src="{{ product.featured_image | image_url: width: 400 }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                loading="lazy"
+                width="400"
+                height="440"
+              >
+            {%- endif -%}
+          </div>
+          <div class="game-info">
+            <div class="game-platform">{{ product.type }}</div>
+            <div class="game-name">{{ product.title }}</div>
+            <div class="game-condition">{{ product.metafields.custom.condition }}</div>
+            <div class="game-bottom">
+              <span class="game-price">{{ product.price | money }}</span>
+              {%- if product.metafields.custom.badge != blank -%}
+                <span class="product-badge">{{ product.metafields.custom.badge }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </a>
+        <button type="button" class="product-add" data-product-id="{{ product.variants.first.id }}">
+          + {{ 'products.product.add_to_cart' | t }}
+        </button>
+      </div>
+    {%- else -%}
+      {%- for i in (1..4) -%}
+        <div class="game-card">
+          <div class="game-img-wrap game-bg-{{ i }}"></div>
+          <div class="game-info">
+            <div class="game-platform">{{ 'sections.retro_games.placeholder.platform' | t }}</div>
+            <div class="game-name">{{ 'sections.retro_games.placeholder.name' | t }}</div>
+            <div class="game-condition">{{ 'sections.retro_games.placeholder.condition' | t }}</div>
+            <div class="game-bottom">
+              <span class="game-price">$0.00</span>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.retro_games.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Retro Video Games",
+      "label": "t:sections.retro_games.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Recent <em>arrivals</em></p>",
+      "label": "t:sections.retro_games.settings.heading.label"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.retro_games.settings.collection.label"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "default": "All games",
+      "label": "t:sections.retro_games.settings.link_label.label"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "t:sections.retro_games.settings.link_url.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.retro_games.presets.name"
+    }
+  ]
+}
+{% endschema %}

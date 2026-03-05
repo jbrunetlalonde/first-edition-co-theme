@@ -1,0 +1,141 @@
+<section class="timemachine">
+  <div class="section-header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+    </div>
+  </div>
+
+  <div class="tm-timeline-wrap">
+    <div class="tm-timeline">
+      {%- for block in section.blocks -%}
+        <button class="tm-era {% if forloop.first %}tm-era--active{% endif %}" data-era="{{ block.settings.year }}" {{ block.shopify_attributes }}>
+          <span class="tm-era-year">{{ block.settings.year }}</span>
+          <span class="tm-era-dot"></span>
+          <span class="tm-era-label">{{ block.settings.label }}</span>
+        </button>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="tm-content">
+    {%- for block in section.blocks -%}
+      <div class="tm-panel {% if forloop.first %}tm-panel--active{% endif %}" data-era-panel="{{ block.settings.year }}" style="--era-hue: {{ block.settings.hue }}">
+        <div class="tm-panel-glow"></div>
+        <div class="tm-panel-inner">
+          <div class="tm-panel-header">
+            <h3 class="tm-panel-title">{{ block.settings.title }}</h3>
+            <p class="tm-panel-desc">{{ block.settings.description }}</p>
+          </div>
+          <div class="tm-panel-highlights">
+            {%- if block.settings.highlight_1 != blank -%}
+              <a href="{{ block.settings.highlight_1_url }}" class="tm-highlight">
+                {%- if block.settings.highlight_1_image != blank -%}
+                  <img src="{{ block.settings.highlight_1_image | image_url: width: 200 }}" alt="{{ block.settings.highlight_1 | escape }}" loading="lazy" width="100" height="140">
+                {%- endif -%}
+                <span>{{ block.settings.highlight_1 }}</span>
+              </a>
+            {%- endif -%}
+            {%- if block.settings.highlight_2 != blank -%}
+              <a href="{{ block.settings.highlight_2_url }}" class="tm-highlight">
+                {%- if block.settings.highlight_2_image != blank -%}
+                  <img src="{{ block.settings.highlight_2_image | image_url: width: 200 }}" alt="{{ block.settings.highlight_2 | escape }}" loading="lazy" width="100" height="140">
+                {%- endif -%}
+                <span>{{ block.settings.highlight_2 }}</span>
+              </a>
+            {%- endif -%}
+            {%- if block.settings.highlight_3 != blank -%}
+              <a href="{{ block.settings.highlight_3_url }}" class="tm-highlight">
+                {%- if block.settings.highlight_3_image != blank -%}
+                  <img src="{{ block.settings.highlight_3_image | image_url: width: 200 }}" alt="{{ block.settings.highlight_3 | escape }}" loading="lazy" width="100" height="140">
+                {%- endif -%}
+                <span>{{ block.settings.highlight_3 }}</span>
+              </a>
+            {%- endif -%}
+          </div>
+          {%- if block.settings.cta_label != blank -%}
+            <a href="{{ block.settings.cta_url }}" class="btn-ghost tm-panel-cta">{{ block.settings.cta_label }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+<script>
+  (function() {
+    var eras = document.querySelectorAll('.tm-era');
+    var panels = document.querySelectorAll('.tm-panel');
+    eras.forEach(function(era) {
+      era.addEventListener('click', function() {
+        var year = era.getAttribute('data-era');
+        eras.forEach(function(e) { e.classList.remove('tm-era--active'); });
+        panels.forEach(function(p) { p.classList.remove('tm-panel--active'); });
+        era.classList.add('tm-era--active');
+        var target = document.querySelector('[data-era-panel="' + year + '"]');
+        if (target) target.classList.add('tm-panel--active');
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.time_machine.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Time Machine",
+      "label": "t:sections.time_machine.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Browse by <em>era</em></p>",
+      "label": "t:sections.time_machine.settings.heading.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "era",
+      "name": "t:sections.time_machine.blocks.era.name",
+      "settings": [
+        { "type": "text", "id": "year", "default": "1999", "label": "t:sections.time_machine.blocks.era.settings.year.label" },
+        { "type": "text", "id": "label", "default": "The OG Era", "label": "t:sections.time_machine.blocks.era.settings.label_text.label" },
+        { "type": "text", "id": "title", "default": "1999 - The Golden Year", "label": "t:sections.time_machine.blocks.era.settings.title.label" },
+        { "type": "textarea", "id": "description", "default": "Base Set Pokemon, N64 classics, the birth of modern collecting.", "label": "t:sections.time_machine.blocks.era.settings.description.label" },
+        { "type": "range", "id": "hue", "min": 0, "max": 360, "step": 10, "default": 40, "label": "t:sections.time_machine.blocks.era.settings.hue.label" },
+        { "type": "text", "id": "highlight_1", "label": "t:sections.time_machine.blocks.era.settings.highlight.label" },
+        { "type": "image_picker", "id": "highlight_1_image", "label": "t:sections.time_machine.blocks.era.settings.highlight_image.label" },
+        { "type": "url", "id": "highlight_1_url", "label": "t:sections.time_machine.blocks.era.settings.highlight_url.label" },
+        { "type": "text", "id": "highlight_2", "label": "t:sections.time_machine.blocks.era.settings.highlight.label" },
+        { "type": "image_picker", "id": "highlight_2_image", "label": "t:sections.time_machine.blocks.era.settings.highlight_image.label" },
+        { "type": "url", "id": "highlight_2_url", "label": "t:sections.time_machine.blocks.era.settings.highlight_url.label" },
+        { "type": "text", "id": "highlight_3", "label": "t:sections.time_machine.blocks.era.settings.highlight.label" },
+        { "type": "image_picker", "id": "highlight_3_image", "label": "t:sections.time_machine.blocks.era.settings.highlight_image.label" },
+        { "type": "url", "id": "highlight_3_url", "label": "t:sections.time_machine.blocks.era.settings.highlight_url.label" },
+        { "type": "text", "id": "cta_label", "default": "Shop this era", "label": "t:sections.time_machine.blocks.era.settings.cta_label.label" },
+        { "type": "url", "id": "cta_url", "label": "t:sections.time_machine.blocks.era.settings.cta_url.label" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "t:sections.time_machine.presets.name",
+      "blocks": [
+        { "type": "era", "settings": { "year": "1993", "label": "MTG Origins", "title": "1993 - Magic Begins", "description": "Alpha, Beta, Unlimited. The birth of trading card games.", "hue": 260 } },
+        { "type": "era", "settings": { "year": "1996", "label": "Pokemon Arrives", "title": "1996 - Pocket Monsters", "description": "Pokemon TCG launches in Japan. N64 debuts. Game Boy Pocket.", "hue": 50 } },
+        { "type": "era", "settings": { "year": "1999", "label": "The Golden Year", "title": "1999 - Peak Nostalgia", "description": "Base Set hits North America. Zelda OoT. Final Fantasy VII.", "hue": 40 } },
+        { "type": "era", "settings": { "year": "2003", "label": "GBA Era", "title": "2003 - Advance Generation", "description": "Ruby & Sapphire. Yu-Gi-Oh peaks. GBA SP launches.", "hue": 0 } },
+        { "type": "era", "settings": { "year": "2016", "label": "Modern Revival", "title": "2016 - Pokemon GO Effect", "description": "The resurgence. Collecting goes mainstream again.", "hue": 160 } },
+        { "type": "era", "settings": { "year": "2023", "label": "New Wave", "title": "2023+ - The New Era", "description": "151, Lorcana, One Piece TCG. Retro prices soar.", "hue": 280 } }
+      ]
+    }
+  ]
+}
+{% endschema %}

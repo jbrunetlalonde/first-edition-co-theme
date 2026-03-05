@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "policy": {
+      "type": "policy",
+      "settings": {
+        "eyebrow": "Policies",
+        "heading": "Payment Policy",
+        "updated": "March 2026",
+        "body": "<p>We accept a variety of secure payment methods to make your purchase easy and safe.</p><h3>Accepted Payments</h3><p>Visa, Mastercard, American Express, Apple Pay, Google Pay, Shop Pay, and PayPal.</p><h3>Currency</h3><p>All prices are listed in Canadian Dollars (CAD) unless otherwise noted. Currency conversion is handled by your payment provider.</p><h3>Security</h3><p>All transactions are encrypted with SSL and processed through Shopify Payments. We never store your credit card information.</p><h3>Pre-Orders & Deposits</h3><p>Some items may be available for pre-order. Full payment is collected at checkout. If a pre-order is cancelled, a full refund is issued automatically.</p><h3>Price Matching</h3><p>We monitor market prices and strive to offer fair, competitive pricing. If you find a lower price from a verified Canadian retailer, contact us and we'll do our best to match it.</p>"
+      }
+    }
+  },
+  "order": ["policy"]
+}

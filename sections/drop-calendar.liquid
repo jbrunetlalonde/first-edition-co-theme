@@ -1,0 +1,124 @@
+<section class="drops">
+  <div class="section-header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+    </div>
+  </div>
+  <p class="drops-intro">{{ section.settings.description }}</p>
+
+  <div class="drops-grid">
+    {%- for block in section.blocks -%}
+      <div class="drops-card {% if block.settings.sold %}drops-card--sold{% endif %}" {{ block.shopify_attributes }}>
+        <div class="drops-card-visual">
+          {%- if block.settings.image != blank -%}
+            <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.name | escape }}" loading="lazy" width="200" height="280" class="drops-card-img {% if block.settings.sold %}drops-card-img--sold{% endif %}">
+          {%- else -%}
+            <div class="drops-card-silhouette">?</div>
+          {%- endif -%}
+          {%- if block.settings.sold -%}
+            <div class="drops-sold-stamp">{{ 'sections.drops.sold' | t }}</div>
+          {%- endif -%}
+        </div>
+        <div class="drops-card-info">
+          <h3 class="drops-card-name">{{ block.settings.name }}</h3>
+          <p class="drops-card-desc">{{ block.settings.description }}</p>
+          {%- if block.settings.sold -%}
+            <div class="drops-card-final">{{ 'sections.drops.final_price' | t }}: {{ block.settings.price }}</div>
+          {%- else -%}
+            {%- if block.settings.drop_date != blank -%}
+              <div class="drops-countdown" data-countdown="{{ block.settings.drop_date }}">
+                <div class="drops-countdown-unit"><span data-days>--</span><small>{{ 'sections.drops.days' | t }}</small></div>
+                <div class="drops-countdown-sep">:</div>
+                <div class="drops-countdown-unit"><span data-hours>--</span><small>{{ 'sections.drops.hours' | t }}</small></div>
+                <div class="drops-countdown-sep">:</div>
+                <div class="drops-countdown-unit"><span data-mins>--</span><small>{{ 'sections.drops.mins' | t }}</small></div>
+              </div>
+            {%- endif -%}
+            <button class="drops-notify btn-ghost" data-drop-notify="{{ block.settings.name | handleize }}">
+              {{ 'sections.drops.notify_me' | t }}
+            </button>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+<script>
+  (function() {
+    document.querySelectorAll('[data-countdown]').forEach(function(el) {
+      var target = new Date(el.dataset.countdown).getTime();
+      function update() {
+        var now = Date.now();
+        var diff = target - now;
+        if (diff <= 0) { el.innerHTML = '<span class="drops-live">LIVE</span>'; return; }
+        var d = Math.floor(diff / 86400000);
+        var h = Math.floor((diff % 86400000) / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var days = el.querySelector('[data-days]');
+        var hours = el.querySelector('[data-hours]');
+        var mins = el.querySelector('[data-mins]');
+        if (days) days.textContent = String(d).padStart(2, '0');
+        if (hours) hours.textContent = String(h).padStart(2, '0');
+        if (mins) mins.textContent = String(m).padStart(2, '0');
+      }
+      update();
+      setInterval(update, 60000);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.drops.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Drop Calendar",
+      "label": "t:sections.drops.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Upcoming <em>drops</em></p>",
+      "label": "t:sections.drops.settings.heading.label"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "default": "New arrivals and restocks. Set a reminder so you don't miss out.",
+      "label": "t:sections.drops.settings.description.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "drop",
+      "name": "t:sections.drops.blocks.drop.name",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "t:sections.drops.blocks.drop.settings.image.label" },
+        { "type": "text", "id": "name", "default": "Mystery Drop", "label": "t:sections.drops.blocks.drop.settings.name.label" },
+        { "type": "text", "id": "description", "default": "Something big is coming...", "label": "t:sections.drops.blocks.drop.settings.description.label" },
+        { "type": "text", "id": "drop_date", "default": "2026-04-01T12:00:00", "label": "t:sections.drops.blocks.drop.settings.date.label" },
+        { "type": "text", "id": "price", "label": "t:sections.drops.blocks.drop.settings.price.label" },
+        { "type": "checkbox", "id": "sold", "default": false, "label": "t:sections.drops.blocks.drop.settings.sold.label" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "t:sections.drops.presets.name",
+      "blocks": [
+        { "type": "drop", "settings": { "name": "Prismatic Evolutions Restock", "description": "Limited ETBs and booster bundles", "drop_date": "2026-04-15T12:00:00" } },
+        { "type": "drop", "settings": { "name": "Retro N64 Lot", "description": "12 CIB games. Details soon.", "drop_date": "2026-03-28T12:00:00" } },
+        { "type": "drop", "settings": { "name": "Base Set Singles Drop", "description": "1st edition holos from a private collection", "sold": true, "price": "$8,400 total" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

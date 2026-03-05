@@ -1,0 +1,37 @@
+{
+  "type": "footer",
+  "name": "t:sections.footer.name",
+  "sections": {
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    },
+    "footer": {
+      "type": "footer",
+      "settings": {},
+      "blocks": {
+        "col_tcg": {
+          "type": "menu",
+          "settings": { "heading": "TCG Cards" }
+        },
+        "col_retro": {
+          "type": "menu",
+          "settings": { "heading": "Retro Games" }
+        },
+        "col_policies": {
+          "type": "links",
+          "settings": {
+            "heading": "Policies",
+            "link_1_label": "Shipping",
+            "link_2_label": "Returns & Refunds",
+            "link_3_label": "Payment Policy",
+            "link_4_label": "About Us",
+            "link_5_label": "Contact"
+          }
+        }
+      },
+      "block_order": ["col_tcg", "col_retro", "col_policies"]
+    }
+  },
+  "order": ["newsletter", "footer"]
+}

@@ -1,0 +1,69 @@
+<div class="consoles">
+  {%- if section.settings.label != blank -%}
+    <p class="consoles-label">{{ section.settings.label }}</p>
+  {%- endif -%}
+  <div class="consoles-row">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.link_url }}" class="console-item" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          <img class="console-icon" src="{{ block.settings.image | image_url: width: 52 }}" alt="{{ block.settings.name | escape }}" width="26" height="26" loading="lazy">
+        {%- endif -%}
+        <div class="console-name">{{ block.settings.name }}</div>
+      </a>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.consoles.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "default": "Available platforms in store",
+      "label": "t:sections.consoles.settings.label.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "console",
+      "name": "t:sections.consoles.blocks.console.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.consoles.blocks.console.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "SNES",
+          "label": "t:sections.consoles.blocks.console.settings.name.label"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "t:sections.consoles.blocks.console.settings.link_url.label"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "t:sections.consoles.presets.name",
+      "blocks": [
+        { "type": "console", "settings": { "name": "SNES" } },
+        { "type": "console", "settings": { "name": "N64" } },
+        { "type": "console", "settings": { "name": "Game Boy" } },
+        { "type": "console", "settings": { "name": "PlayStation" } },
+        { "type": "console", "settings": { "name": "Sega" } },
+        { "type": "console", "settings": { "name": "NES" } },
+        { "type": "console", "settings": { "name": "Game Gear" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

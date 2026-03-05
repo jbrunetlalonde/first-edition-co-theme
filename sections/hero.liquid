@@ -1,0 +1,84 @@
+<section class="hero">
+  {%- if section.settings.hero_image != blank -%}
+    <div class="hero-bg" style="background-image: url('{{ section.settings.hero_image | image_url: width: 1920 }}');"></div>
+  {%- else -%}
+    <div class="hero-bg" style="background: linear-gradient(160deg, #0f1830, #06091a, #0e0618);"></div>
+  {%- endif -%}
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="hero-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h1 class="hero-h1">{{ section.settings.heading }}</h1>
+    {%- if section.settings.subheading != blank -%}
+      <p class="hero-sub">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+    <div class="hero-cta-row">
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link }}" class="btn-primary">{{ section.settings.button_label }}</a>
+      {%- endif -%}
+      {%- if section.settings.button_secondary_label != blank -%}
+        <a href="{{ section.settings.button_secondary_link }}" class="btn-ghost">{{ section.settings.button_secondary_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.hero.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "t:sections.hero.settings.image.label"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "TCG Cards - Retro Games & Consoles",
+      "label": "t:sections.hero.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>The home of <em>first editions.</em></p>",
+      "label": "t:sections.hero.settings.heading.label"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "default": "Carefully curated trading cards and retro video games. For collectors who seek authentic pieces in excellent condition.",
+      "label": "t:sections.hero.settings.subheading.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Browse arrivals",
+      "label": "t:sections.hero.settings.button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.hero.settings.button_link.label"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_label",
+      "default": "Retro games",
+      "label": "t:sections.hero.settings.button_secondary_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "t:sections.hero.settings.button_secondary_link.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.hero.presets.name"
+    }
+  ]
+}
+{% endschema %}

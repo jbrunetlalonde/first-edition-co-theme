@@ -1,0 +1,62 @@
+<section class="collections-list">
+  <div class="section-header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h1 class="section-title">{{ section.settings.heading }}</h1>
+    </div>
+  </div>
+
+  <div class="coll-list-grid">
+    {%- for collection in collections -%}
+      {%- if collection.handle != 'all' -%}
+        <a href="{{ collection.url }}" class="coll-list-card">
+          <div class="coll-list-img">
+            {%- if collection.image != blank -%}
+              <img
+                src="{{ collection.image | image_url: width: 600 }}"
+                alt="{{ collection.title | escape }}"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+            {%- else -%}
+              <div class="coll-list-placeholder"></div>
+            {%- endif -%}
+          </div>
+          <div class="coll-list-info">
+            <h3 class="coll-list-name">{{ collection.title }}</h3>
+            <p class="coll-list-count">{{ collection.products_count }} {{ 'sections.collection_banner.products' | t }}</p>
+          </div>
+        </a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.collections_list.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Browse",
+      "label": "t:sections.collections_list.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>All <em>collections</em></p>",
+      "label": "t:sections.collections_list.settings.heading.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collections_list.presets.name"
+    }
+  ]
+}
+{% endschema %}

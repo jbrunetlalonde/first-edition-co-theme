@@ -1,0 +1,36 @@
+<nav>
+  <a class="nav-logo" href="/">{{ shop.name | split: ' ' | first }} <span>{{ shop.name | split: ' ' | slice: 1 }}</span> {{ shop.name | split: ' ' | last }}</a>
+
+  <button class="nav-toggle" aria-label="{{ 'general.accessibility.menu' | t }}" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <ul class="nav-links">
+    {%- for link in section.settings.menu.links -%}
+      <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+    {%- endfor -%}
+  </ul>
+
+  <div class="nav-actions">
+    <a href="{{ routes.cart_url }}" class="nav-cart">
+      {{ 'general.cart.title' | t }} ({{ cart.item_count }})
+    </a>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "class": "section-header-wrapper",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    }
+  ]
+}
+{% endschema %}

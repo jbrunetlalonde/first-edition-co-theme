@@ -1,0 +1,90 @@
+<section class="testimonials">
+  <div class="section-header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+    </div>
+  </div>
+  <div class="testimonials-grid">
+    {%- for block in section.blocks -%}
+      <div class="tcard" {{ block.shopify_attributes }}>
+        <div class="tcard-stars" aria-label="{{ block.settings.rating }} {{ 'sections.testimonials.out_of_5' | t }}">
+          {%- for i in (1..5) -%}
+            {%- if i <= block.settings.rating -%}&#9733;{%- else -%}&#9734;{%- endif -%}
+          {%- endfor -%}
+        </div>
+        <blockquote class="tcard-quote">{{ block.settings.quote }}</blockquote>
+        <div class="tcard-author">{{ block.settings.author }} <span>{{ block.settings.location }}</span></div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.testimonials.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Customer reviews",
+      "label": "t:sections.testimonials.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>What our <em>collectors say</em></p>",
+      "label": "t:sections.testimonials.settings.heading.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "t:sections.testimonials.blocks.testimonial.name",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5,
+          "label": "t:sections.testimonials.blocks.testimonial.settings.rating.label"
+        },
+        {
+          "type": "text",
+          "id": "quote",
+          "default": "Amazing selection and authentic pieces. Highly recommended!",
+          "label": "t:sections.testimonials.blocks.testimonial.settings.quote.label"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "default": "Customer Name",
+          "label": "t:sections.testimonials.blocks.testimonial.settings.author.label"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "default": "Montreal, QC",
+          "label": "t:sections.testimonials.blocks.testimonial.settings.location.label"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "t:sections.testimonials.presets.name",
+      "blocks": [
+        { "type": "testimonial", "settings": { "rating": 5, "quote": "I found a 1st Edition Charizard in excellent condition. Fair price and truly professional service.", "author": "Marc-Antoine L.", "location": "Montreal, QC" } },
+        { "type": "testimonial", "settings": { "rating": 5, "quote": "Great selection of CIB N64 games. Rare to find games this well preserved with boxes and manuals.", "author": "Sasha D.", "location": "Quebec, QC" } },
+        { "type": "testimonial", "settings": { "rating": 5, "quote": "The go-to shop for collectors in Quebec. TCG and retro under one roof, authentic pieces, fast shipping.", "author": "Kevin T.", "location": "Gatineau, QC" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

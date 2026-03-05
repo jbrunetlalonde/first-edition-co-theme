@@ -1,0 +1,106 @@
+<section class="products">
+  <div class="section-header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+    </div>
+    {%- if section.settings.link_label != blank -%}
+      <a href="{{ section.settings.link_url }}" class="section-link">{{ section.settings.link_label }}</a>
+    {%- endif -%}
+  </div>
+  <div class="products-grid">
+    {%- for product in section.settings.collection.products limit: 4 -%}
+      <div class="product-card">
+        <a href="{{ product.url }}" class="product-card-link">
+          <div class="product-img-wrap product-bg-{{ forloop.index }}">
+            <div class="product-holo"></div>
+            {%- if product.featured_image != blank -%}
+              <img
+                src="{{ product.featured_image | image_url: width: 400 }}"
+                alt="{{ product.featured_image.alt | escape }}"
+                loading="lazy"
+                width="400"
+                height="533"
+              >
+            {%- endif -%}
+          </div>
+          <div class="product-info">
+            <div class="product-set">{{ product.type }}</div>
+            <div class="product-name">{{ product.title }}</div>
+            <div class="product-condition">{{ product.metafields.custom.condition }}</div>
+            <div class="product-bottom">
+              <span class="product-price">{{ product.price | money }}</span>
+              {%- if product.metafields.custom.badge != blank -%}
+                <span class="product-badge">{{ product.metafields.custom.badge }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </a>
+        <button type="button" class="product-add" data-product-id="{{ product.variants.first.id }}">
+          + {{ 'products.product.add_to_cart' | t }}
+        </button>
+      </div>
+    {%- else -%}
+      {%- for i in (1..4) -%}
+        <div class="product-card">
+          <div class="product-img-wrap product-bg-{{ i }}">
+            <div class="product-holo"></div>
+          </div>
+          <div class="product-info">
+            <div class="product-set">{{ 'sections.featured_products.placeholder.set' | t }}</div>
+            <div class="product-name">{{ 'sections.featured_products.placeholder.name' | t }}</div>
+            <div class="product-condition">{{ 'sections.featured_products.placeholder.condition' | t }}</div>
+            <div class="product-bottom">
+              <span class="product-price">$0.00</span>
+              <span class="product-badge">{{ 'sections.featured_products.placeholder.badge' | t }}</span>
+            </div>
+          </div>
+        </div>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.featured_products.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "TCG Cards - Selection",
+      "label": "t:sections.featured_products.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Featured <em>singles</em></p>",
+      "label": "t:sections.featured_products.settings.heading.label"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.featured_products.settings.collection.label"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "default": "All singles",
+      "label": "t:sections.featured_products.settings.link_label.label"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "t:sections.featured_products.settings.link_url.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.featured_products.presets.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,69 @@
+{%- comment -%}
+  Immersive Collection Banner — themed atmosphere per collection.
+  Each collection universe gets its own visual identity.
+{%- endcomment -%}
+
+{%- liquid
+  assign universe = collection.metafields.custom.universe | default: 'default'
+  assign atmo_class = 'atmo-default'
+  case universe
+    when 'pokemon'
+      assign atmo_class = 'atmo-pokemon'
+    when 'magic'
+      assign atmo_class = 'atmo-magic'
+    when 'onepiece'
+      assign atmo_class = 'atmo-onepiece'
+    when 'lorcana'
+      assign atmo_class = 'atmo-lorcana'
+    when 'yugioh'
+      assign atmo_class = 'atmo-yugioh'
+    when 'retro-snes'
+      assign atmo_class = 'atmo-snes'
+    when 'retro-n64'
+      assign atmo_class = 'atmo-n64'
+    when 'retro-gb'
+      assign atmo_class = 'atmo-gb'
+    when 'retro-ps1'
+      assign atmo_class = 'atmo-ps1'
+  endcase
+-%}
+
+<div class="coll-banner {{ atmo_class }}">
+  <div class="coll-banner-atmosphere" aria-hidden="true">
+    <div class="coll-banner-particles"></div>
+  </div>
+  {%- if collection.image != blank -%}
+    <img class="coll-banner-bg" src="{{ collection.image | image_url: width: 1920 }}" alt="" loading="eager" width="1920" height="600">
+  {%- endif -%}
+  <div class="coll-banner-overlay"></div>
+  <div class="coll-banner-content">
+    {%- if section.settings.show_universe_badge -%}
+      <span class="coll-banner-badge">{{ universe | replace: '-', ' ' | upcase }}</span>
+    {%- endif -%}
+    <h1 class="coll-banner-title">{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <div class="coll-banner-desc">{{ collection.description }}</div>
+    {%- endif -%}
+    <span class="coll-banner-count">{{ collection.products_count }} {{ 'sections.collection_banner.products' | t }}</span>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.collection_banner.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_universe_badge",
+      "default": true,
+      "label": "t:sections.collection_banner.settings.show_universe_badge.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collection_banner.presets.name"
+    }
+  ]
+}
+{% endschema %}

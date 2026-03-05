@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "policy": {
+      "type": "policy",
+      "settings": {
+        "eyebrow": "Policies",
+        "heading": "Shipping Policy",
+        "updated": "March 2026",
+        "body": "<p>We ship across Canada and to the United States. All orders are carefully packaged to ensure your collectibles arrive in perfect condition.</p><h3>Processing Time</h3><p>Orders are processed within 1–2 business days. You will receive a tracking number by email once your order ships.</p><h3>Shipping Rates</h3><p><strong>Canada</strong> — Free shipping on orders over $75 CAD. Standard shipping starts at $8.99 CAD.</p><p><strong>United States</strong> — Flat rate $14.99 USD. Free shipping on orders over $150 USD.</p><h3>Delivery Times</h3><p>Canada: 3–7 business days. United States: 5–12 business days. Delays may occur during holidays or due to customs processing.</p><h3>Packaging</h3><p>Trading cards are shipped in rigid toploaders and bubble mailers. Video games and consoles are packed with foam and double-boxed when needed.</p>"
+      }
+    }
+  },
+  "order": ["policy"]
+}

@@ -1,0 +1,109 @@
+<section class="tcg-sets">
+  <div class="section-header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+    </div>
+    {%- if section.settings.link_label != blank -%}
+      <a href="{{ section.settings.link_url }}" class="section-link">{{ section.settings.link_label }}</a>
+    {%- endif -%}
+  </div>
+  <div class="sets-grid">
+    {%- for block in section.blocks -%}
+      <a href="{{ block.settings.link_url }}" class="set-card" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          <img class="set-icon" src="{{ block.settings.image | image_url: width: 76 }}" alt="{{ block.settings.name | escape }}" width="38" height="38" loading="lazy">
+        {%- endif -%}
+        <div>
+          <div class="set-name">{{ block.settings.name }}</div>
+          <div class="set-meta">{{ block.settings.meta }}</div>
+          <div class="set-count">{{ block.settings.count }}</div>
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.tcg_sets.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "By universe",
+      "label": "t:sections.tcg_sets.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>TCG <em>collections</em></p>",
+      "label": "t:sections.tcg_sets.settings.heading.label"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "default": "View all",
+      "label": "t:sections.tcg_sets.settings.link_label.label"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "t:sections.tcg_sets.settings.link_url.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "set",
+      "name": "t:sections.tcg_sets.blocks.set.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.tcg_sets.blocks.set.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "Pokemon TCG",
+          "label": "t:sections.tcg_sets.blocks.set.settings.name.label"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "default": "Singles & Sealed",
+          "label": "t:sections.tcg_sets.blocks.set.settings.meta.label"
+        },
+        {
+          "type": "text",
+          "id": "count",
+          "default": "+1,240 products",
+          "label": "t:sections.tcg_sets.blocks.set.settings.count.label"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "t:sections.tcg_sets.blocks.set.settings.link_url.label"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "t:sections.tcg_sets.presets.name",
+      "blocks": [
+        { "type": "set", "settings": { "name": "Pokemon TCG", "meta": "Singles & Sealed", "count": "+1,240 products" } },
+        { "type": "set", "settings": { "name": "Magic: The Gathering", "meta": "Singles & Lots", "count": "+890 products" } },
+        { "type": "set", "settings": { "name": "One Piece TCG", "meta": "Singles & Packs", "count": "+430 products" } },
+        { "type": "set", "settings": { "name": "Lorcana", "meta": "Singles & Sealed", "count": "+310 products" } },
+        { "type": "set", "settings": { "name": "Dragon Ball Super", "meta": "Singles", "count": "+200 products" } },
+        { "type": "set", "settings": { "name": "Yu-Gi-Oh!", "meta": "Singles & Lots", "count": "+560 products" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

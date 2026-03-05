@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "banner": {
+      "type": "collection-banner",
+      "settings": {
+        "show_universe_badge": true
+      }
+    },
+    "grid": {
+      "type": "collection-grid",
+      "settings": {}
+    }
+  },
+  "order": [
+    "banner",
+    "grid"
+  ]
+}

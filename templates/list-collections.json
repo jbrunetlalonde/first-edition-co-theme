@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "collections-list",
+      "settings": {
+        "eyebrow": "Our Catalogue",
+        "heading": "<p>All <em>collections</em></p>"
+      }
+    }
+  },
+  "order": ["main"]
+}

@@ -1,0 +1,50 @@
+<div class="newsletter">
+  <div class="newsletter-text">
+    {%- if section.settings.heading != blank -%}
+      <h3>{{ section.settings.heading }}</h3>
+    {%- endif -%}
+    {%- if section.settings.description != blank -%}
+      <p>{{ section.settings.description }}</p>
+    {%- endif -%}
+  </div>
+  {%- form 'customer', class: 'newsletter-form' -%}
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <label for="NewsletterEmail-{{ section.id }}" class="visually-hidden">{{ 'sections.newsletter.email_label' | t }}</label>
+    <input
+      id="NewsletterEmail-{{ section.id }}"
+      class="newsletter-input"
+      type="email"
+      name="contact[email]"
+      autocomplete="email"
+      placeholder="{{ 'sections.newsletter.email_placeholder' | t }}"
+      required
+    >
+    <button type="submit" class="newsletter-btn">{{ 'sections.newsletter.subscribe' | t }}</button>
+  {%- endform -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.newsletter.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Stay ahead of the drops.",
+      "label": "t:sections.newsletter.settings.heading.label"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "default": "New TCG arrivals, retro games and exclusive subscriber deals.",
+      "label": "t:sections.newsletter.settings.description.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.newsletter.presets.name"
+    }
+  ]
+}
+{% endschema %}

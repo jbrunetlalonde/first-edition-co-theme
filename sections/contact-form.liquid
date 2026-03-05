@@ -1,0 +1,93 @@
+<section class="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h1 class="section-title contact-title">{{ section.settings.heading }}</h1>
+      {%- if section.settings.description != blank -%}
+        <p class="contact-desc">{{ section.settings.description }}</p>
+      {%- endif -%}
+
+      <div class="contact-channels">
+        {%- for block in section.blocks -%}
+          <div class="contact-channel" {{ block.shopify_attributes }}>
+            <h3 class="contact-channel-title">{{ block.settings.title }}</h3>
+            <p class="contact-channel-value">{{ block.settings.value }}</p>
+            {%- if block.settings.note != blank -%}
+              <span class="contact-channel-note">{{ block.settings.note }}</span>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      {%- form 'contact', class: 'contact-form' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="contact-success">
+            <p>{{ 'sections.contact.success' | t }}</p>
+          </div>
+        {%- endif -%}
+
+        <div class="contact-field">
+          <label for="ContactName" class="contact-label">{{ 'sections.contact.name' | t }}</label>
+          <input type="text" id="ContactName" name="contact[name]" class="contact-input" required autocomplete="name">
+        </div>
+        <div class="contact-field">
+          <label for="ContactEmail" class="contact-label">{{ 'sections.contact.email' | t }}</label>
+          <input type="email" id="ContactEmail" name="contact[email]" class="contact-input" required autocomplete="email">
+        </div>
+        <div class="contact-field">
+          <label for="ContactSubject" class="contact-label">{{ 'sections.contact.subject' | t }}</label>
+          <select id="ContactSubject" name="contact[subject]" class="contact-input">
+            <option value="General">{{ 'sections.contact.subjects.general' | t }}</option>
+            <option value="Order">{{ 'sections.contact.subjects.order' | t }}</option>
+            <option value="Authentication">{{ 'sections.contact.subjects.authentication' | t }}</option>
+            <option value="Selling">{{ 'sections.contact.subjects.selling' | t }}</option>
+            <option value="Other">{{ 'sections.contact.subjects.other' | t }}</option>
+          </select>
+        </div>
+        <div class="contact-field">
+          <label for="ContactMessage" class="contact-label">{{ 'sections.contact.message' | t }}</label>
+          <textarea id="ContactMessage" name="contact[body]" class="contact-input contact-textarea" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary contact-submit">{{ 'sections.contact.send' | t }}</button>
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.contact.name",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "default": "Get in touch", "label": "t:sections.contact.settings.eyebrow.label" },
+    { "type": "richtext", "id": "heading", "default": "<p>Contact <em>us</em></p>", "label": "t:sections.contact.settings.heading.label" },
+    { "type": "textarea", "id": "description", "default": "Have a question about an item, want to sell your collection, or need help with an order? We'd love to hear from you.", "label": "t:sections.contact.settings.description.label" }
+  ],
+  "blocks": [
+    {
+      "type": "channel",
+      "name": "t:sections.contact.blocks.channel.name",
+      "settings": [
+        { "type": "text", "id": "title", "default": "Email", "label": "t:sections.contact.blocks.channel.settings.title.label" },
+        { "type": "text", "id": "value", "default": "hello@firsteditionco.com", "label": "t:sections.contact.blocks.channel.settings.value.label" },
+        { "type": "text", "id": "note", "label": "t:sections.contact.blocks.channel.settings.note.label" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "t:sections.contact.presets.name",
+      "blocks": [
+        { "type": "channel", "settings": { "title": "Email", "value": "hello@firsteditionco.com", "note": "We reply within 24 hours" } },
+        { "type": "channel", "settings": { "title": "Discord", "value": "Join our community", "note": "Live chat with collectors" } },
+        { "type": "channel", "settings": { "title": "Location", "value": "Quebec, Canada", "note": "Online only" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

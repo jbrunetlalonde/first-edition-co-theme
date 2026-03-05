@@ -1,0 +1,49 @@
+<section class="policy">
+  <div class="policy-container">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h1 class="section-title policy-title">{{ section.settings.heading }}</h1>
+    {%- if section.settings.updated != blank -%}
+      <p class="policy-updated">{{ 'sections.policy.last_updated' | t }}: {{ section.settings.updated }}</p>
+    {%- endif -%}
+    <div class="policy-body">
+      {{ section.settings.body }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.policy.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.policy.settings.eyebrow.label"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.policy.settings.heading.label",
+      "default": "Policy"
+    },
+    {
+      "type": "text",
+      "id": "updated",
+      "label": "t:sections.policy.settings.updated.label"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "t:sections.policy.settings.body.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.policy.presets.name"
+    }
+  ]
+}
+{% endschema %}

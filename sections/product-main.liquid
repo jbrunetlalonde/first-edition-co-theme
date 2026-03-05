@@ -1,0 +1,160 @@
+<section class="pdp">
+  <div class="pdp-grid">
+    {%- comment -%} Left: Image with Loupe Zoom {%- endcomment -%}
+    <div class="pdp-gallery">
+      <div class="pdp-loupe-wrap" data-loupe>
+        {%- if product.featured_image != blank -%}
+          <img
+            class="pdp-main-img"
+            src="{{ product.featured_image | image_url: width: 800 }}"
+            data-zoom-src="{{ product.featured_image | image_url: width: 1600 }}"
+            alt="{{ product.featured_image.alt | escape }}"
+            width="800"
+            height="1120"
+          >
+        {%- endif -%}
+        <div class="pdp-loupe" aria-hidden="true">
+          <div class="pdp-loupe-lens"></div>
+        </div>
+        <div class="pdp-loupe-hint">{{ 'sections.product.hover_to_zoom' | t }}</div>
+      </div>
+
+      {%- if product.images.size > 1 -%}
+        <div class="pdp-thumbs">
+          {%- for image in product.images -%}
+            <button class="pdp-thumb {% if forloop.first %}pdp-thumb--active{% endif %}" data-thumb-src="{{ image | image_url: width: 800 }}" data-zoom-src="{{ image | image_url: width: 1600 }}">
+              <img src="{{ image | image_url: width: 120 }}" alt="{{ image.alt | escape }}" width="60" height="84" loading="lazy">
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Right: Product Info {%- endcomment -%}
+    <div class="pdp-info">
+      <div class="pdp-breadcrumb">
+        <a href="{{ routes.root_url }}">{{ 'sections.product.home' | t }}</a>
+        <span>/</span>
+        {%- if product.collections.size > 0 -%}
+          <a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a>
+          <span>/</span>
+        {%- endif -%}
+        <span>{{ product.title }}</span>
+      </div>
+
+      <div class="pdp-set">{{ product.type }}</div>
+      <h1 class="pdp-title">{{ product.title }}</h1>
+
+      {%- if product.metafields.custom.condition != blank -%}
+        <div class="pdp-condition-row">
+          <span class="pdp-condition-label">{{ 'sections.product.condition' | t }}:</span>
+          <span class="pdp-condition-value">{{ product.metafields.custom.condition }}</span>
+          {%- if product.metafields.custom.grade_code != blank -%}
+            <span class="pdp-grade-pill">{{ product.metafields.custom.grade_code }}</span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <div class="pdp-price-row">
+        <span class="pdp-price">{{ product.price | money }}</span>
+        {%- if product.compare_at_price > product.price -%}
+          <span class="pdp-compare-price">{{ product.compare_at_price | money }}</span>
+        {%- endif -%}
+      </div>
+
+      {%- comment -%} Authentication Badge inline {%- endcomment -%}
+      <div class="pdp-auth-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>{{ 'sections.product.verified' | t }}</span>
+      </div>
+
+      {%- form 'product', product -%}
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        {%- if product.has_only_default_variant == false -%}
+          {%- for option in product.options_with_values -%}
+            <div class="pdp-option">
+              <label class="pdp-option-label" for="option-{{ option.name | handleize }}">{{ option.name }}</label>
+              <select class="pdp-option-select" id="option-{{ option.name | handleize }}" name="options[{{ option.name }}]">
+                {%- for value in option.values -%}
+                  <option value="{{ value }}" {% if option.selected_value == value %}selected{% endif %}>{{ value }}</option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+
+        <button type="submit" class="btn-primary pdp-atc" {% unless product.available %}disabled{% endunless %}>
+          {%- if product.available -%}
+            {{ 'products.product.add_to_cart' | t }}
+          {%- else -%}
+            {{ 'sections.product.sold_out' | t }}
+          {%- endif -%}
+        </button>
+
+        <button type="button" class="btn-ghost pdp-collect"
+          data-add-to-collection
+          data-product-id="{{ product.id }}"
+          data-product-name="{{ product.title | escape }}"
+          data-product-price="{{ product.price | money }}"
+          data-product-image="{{ product.featured_image | image_url: width: 200 }}">
+          {{ 'sections.product.add_to_collection' | t }}
+        </button>
+      {%- endform -%}
+
+      {%- if product.description != blank -%}
+        <div class="pdp-description">
+          <h3 class="pdp-desc-heading">{{ 'sections.product.description' | t }}</h3>
+          {{ product.description }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    /* Loupe zoom */
+    var wrap = document.querySelector('[data-loupe]');
+    if (!wrap) return;
+    var img = wrap.querySelector('.pdp-main-img');
+    var loupe = wrap.querySelector('.pdp-loupe');
+    var lens = wrap.querySelector('.pdp-loupe-lens');
+
+    wrap.addEventListener('mousemove', function(e) {
+      var rect = wrap.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width;
+      var y = (e.clientY - rect.top) / rect.height;
+      loupe.style.opacity = '1';
+      loupe.style.left = (x * 100) + '%';
+      loupe.style.top = (y * 100) + '%';
+      var zoomSrc = img.dataset.zoomSrc || img.src;
+      lens.style.backgroundImage = 'url(' + zoomSrc + ')';
+      lens.style.backgroundPosition = (x * 100) + '% ' + (y * 100) + '%';
+    });
+    wrap.addEventListener('mouseleave', function() { loupe.style.opacity = '0'; });
+
+    /* Thumbnail switching */
+    document.querySelectorAll('.pdp-thumb').forEach(function(thumb) {
+      thumb.addEventListener('click', function() {
+        document.querySelectorAll('.pdp-thumb').forEach(function(t) { t.classList.remove('pdp-thumb--active'); });
+        thumb.classList.add('pdp-thumb--active');
+        img.src = thumb.dataset.thumbSrc;
+        img.dataset.zoomSrc = thumb.dataset.zoomSrc;
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.product.name",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:sections.product.presets.name"
+    }
+  ]
+}
+{% endschema %}

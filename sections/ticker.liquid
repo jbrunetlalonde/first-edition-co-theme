@@ -1,0 +1,61 @@
+<div class="ticker">
+  <div class="ticker-inner" aria-label="{{ 'sections.ticker.label' | t }}">
+    {%- for block in section.blocks -%}
+      <div class="ticker-item" {{ block.shopify_attributes }}>
+        <span class="badge">{{ block.settings.badge }}</span>
+        {{ block.settings.text }}
+        <span class="ticker-dot" aria-hidden="true"></span>
+      </div>
+    {%- endfor -%}
+    {%- comment -%} Duplicate for infinite scroll {%- endcomment -%}
+    <div aria-hidden="true" style="display:contents">
+      {%- for block in section.blocks -%}
+        <div class="ticker-item">
+          <span class="badge">{{ block.settings.badge }}</span>
+          {{ block.settings.text }}
+          <span class="ticker-dot"></span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.ticker.name",
+  "tag": "div",
+  "max_blocks": 10,
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:sections.ticker.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "badge",
+          "default": "NEW",
+          "label": "t:sections.ticker.blocks.announcement.settings.badge.label"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Pokemon 151 - Singles available",
+          "label": "t:sections.ticker.blocks.announcement.settings.text.label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.ticker.presets.name",
+      "blocks": [
+        { "type": "announcement", "settings": { "badge": "NEW", "text": "Pokemon 151 - Singles available" } },
+        { "type": "announcement", "settings": { "badge": "RETRO", "text": "Zelda Ocarina of Time CIB - N64 - $180" } },
+        { "type": "announcement", "settings": { "badge": "TCG", "text": "One Piece Romance Dawn - sealed packs" } },
+        { "type": "announcement", "settings": { "badge": "SOLD", "text": "Charizard Base Set 1st Edition - $2,400" } },
+        { "type": "announcement", "settings": { "badge": "ARRIVAL", "text": "SNES lot 12 games - CIB complete" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

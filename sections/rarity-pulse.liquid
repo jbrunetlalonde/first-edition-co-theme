@@ -1,0 +1,135 @@
+{%- comment -%}
+  Rarity Pulse — market context widget showing price trends.
+  Used as a standalone section or embedded in product pages.
+{%- endcomment -%}
+
+<section class="pulse">
+  <div class="section-header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+    </div>
+  </div>
+
+  <div class="pulse-grid">
+    {%- for block in section.blocks -%}
+      <div class="pulse-card" {{ block.shopify_attributes }}>
+        <div class="pulse-card-top">
+          <div>
+            <h3 class="pulse-card-name">{{ block.settings.name }}</h3>
+            <span class="pulse-card-set">{{ block.settings.set }}</span>
+          </div>
+          <div class="pulse-card-trend pulse-card-trend--{{ block.settings.trend }}">
+            {%- case block.settings.trend -%}
+              {%- when 'up' -%}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              {%- when 'down' -%}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+              {%- when 'stable' -%}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            {%- endcase -%}
+            <span>{{ block.settings.trend_pct }}</span>
+          </div>
+        </div>
+
+        <div class="pulse-spark" aria-hidden="true">
+          <svg viewBox="0 0 200 50" class="pulse-spark-svg" preserveAspectRatio="none">
+            <polyline points="{{ block.settings.spark_data }}" fill="none" stroke="currentColor" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+
+        <div class="pulse-card-bottom">
+          <div class="pulse-price-col">
+            <span class="pulse-label">{{ 'sections.pulse.our_price' | t }}</span>
+            <span class="pulse-our-price">{{ block.settings.our_price }}</span>
+          </div>
+          <div class="pulse-price-col">
+            <span class="pulse-label">{{ 'sections.pulse.market' | t }}</span>
+            <span class="pulse-market-price">{{ block.settings.market_price }}</span>
+          </div>
+          <div class="pulse-price-col">
+            <span class="pulse-label">{{ 'sections.pulse.last_3' | t }}</span>
+            <span class="pulse-last-sales">{{ block.settings.last_sales }}</span>
+          </div>
+        </div>
+
+        {%- if block.settings.our_price != blank and block.settings.market_price != blank -%}
+          <div class="pulse-verdict pulse-verdict--{{ block.settings.verdict }}">
+            {%- case block.settings.verdict -%}
+              {%- when 'below' -%}{{ 'sections.pulse.below_market' | t }}
+              {%- when 'at' -%}{{ 'sections.pulse.at_market' | t }}
+              {%- when 'above' -%}{{ 'sections.pulse.above_market' | t }}
+            {%- endcase -%}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "t:sections.pulse.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Market Intelligence",
+      "label": "t:sections.pulse.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Rarity <em>pulse</em></p>",
+      "label": "t:sections.pulse.settings.heading.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "t:sections.pulse.blocks.item.name",
+      "settings": [
+        { "type": "text", "id": "name", "default": "Charizard #4", "label": "t:sections.pulse.blocks.item.settings.name.label" },
+        { "type": "text", "id": "set", "default": "Base Set 1999", "label": "t:sections.pulse.blocks.item.settings.set.label" },
+        {
+          "type": "select", "id": "trend", "default": "up",
+          "label": "t:sections.pulse.blocks.item.settings.trend.label",
+          "options": [
+            { "value": "up", "label": "Trending up" },
+            { "value": "down", "label": "Trending down" },
+            { "value": "stable", "label": "Stable" }
+          ]
+        },
+        { "type": "text", "id": "trend_pct", "default": "+12%", "label": "t:sections.pulse.blocks.item.settings.trend_pct.label" },
+        { "type": "text", "id": "spark_data", "default": "0,45 25,38 50,40 75,30 100,28 125,22 150,18 175,12 200,8", "label": "t:sections.pulse.blocks.item.settings.spark_data.label" },
+        { "type": "text", "id": "our_price", "default": "$1,850", "label": "t:sections.pulse.blocks.item.settings.our_price.label" },
+        { "type": "text", "id": "market_price", "default": "$2,100", "label": "t:sections.pulse.blocks.item.settings.market_price.label" },
+        { "type": "text", "id": "last_sales", "default": "$2,050 / $1,950 / $2,200", "label": "t:sections.pulse.blocks.item.settings.last_sales.label" },
+        {
+          "type": "select", "id": "verdict", "default": "below",
+          "label": "t:sections.pulse.blocks.item.settings.verdict.label",
+          "options": [
+            { "value": "below", "label": "Below market" },
+            { "value": "at", "label": "At market" },
+            { "value": "above", "label": "Above market" }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "t:sections.pulse.presets.name",
+      "blocks": [
+        { "type": "item", "settings": { "name": "Charizard #4", "set": "Base Set 1999 - LP", "trend": "up", "trend_pct": "+12%", "spark_data": "0,45 25,38 50,40 75,30 100,28 125,22 150,18 175,12 200,8", "our_price": "$1,850", "market_price": "$2,100", "last_sales": "$2,050 / $1,950 / $2,200", "verdict": "below" } },
+        { "type": "item", "settings": { "name": "Pikachu ex #25", "set": "S&V 151 - NM", "trend": "stable", "trend_pct": "+2%", "spark_data": "0,25 25,24 50,26 75,25 100,24 125,25 150,23 175,24 200,25", "our_price": "$45", "market_price": "$48", "last_sales": "$46 / $50 / $44", "verdict": "below" } },
+        { "type": "item", "settings": { "name": "Black Lotus", "set": "Alpha - HP", "trend": "down", "trend_pct": "-5%", "spark_data": "0,10 25,12 50,15 75,20 100,22 125,28 150,32 175,38 200,42", "our_price": "$18,000", "market_price": "$17,500", "last_sales": "$18,200 / $17,000 / $17,800", "verdict": "at" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

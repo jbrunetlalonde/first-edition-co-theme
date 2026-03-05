@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "policy": {
+      "type": "policy",
+      "settings": {
+        "eyebrow": "Policies",
+        "heading": "Returns & Refunds",
+        "updated": "March 2026",
+        "body": "<p>Your satisfaction is important to us. If something isn't right, we'll make it right.</p><h3>Return Window</h3><p>You have 14 days from delivery to request a return. Items must be in the same condition as received.</p><h3>Eligible Items</h3><p>Singles, graded cards, and loose cartridges are eligible for return if the item does not match the listed condition or description.</p><h3>Non-Returnable Items</h3><p>Sealed products (booster packs, booster boxes, ETBs) cannot be returned once opened. Digital codes are non-refundable.</p><h3>How to Return</h3><p>Contact us at <strong>support@firsteditionco.com</strong> with your order number and photos of the item. We'll provide a return shipping label within 24 hours.</p><h3>Refunds</h3><p>Once we receive and inspect the return, refunds are processed within 3–5 business days to your original payment method.</p>"
+      }
+    }
+  },
+  "order": ["policy"]
+}

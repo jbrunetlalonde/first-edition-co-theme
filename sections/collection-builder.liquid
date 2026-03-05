@@ -1,0 +1,126 @@
+{%- comment -%}
+  Collection Builder — persistent wishlist drawer where users build sets visually.
+  Uses localStorage for persistence without requiring an account.
+{%- endcomment -%}
+
+<div class="cb-trigger-wrap">
+  <button class="cb-trigger" id="cbTrigger" aria-label="{{ 'sections.collection_builder.open' | t }}">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    <span class="cb-trigger-label">{{ 'sections.collection_builder.title' | t }}</span>
+    <span class="cb-trigger-count" id="cbCount">0</span>
+  </button>
+</div>
+
+<aside class="cb-drawer" id="cbDrawer" aria-hidden="true">
+  <div class="cb-drawer-header">
+    <h3 class="cb-drawer-title">{{ 'sections.collection_builder.title' | t }}</h3>
+    <button class="cb-drawer-close" id="cbClose" aria-label="{{ 'sections.collection_builder.close' | t }}">&times;</button>
+  </div>
+
+  <div class="cb-drawer-body" id="cbBody">
+    <div class="cb-empty" id="cbEmpty">
+      <div class="cb-empty-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v7M14 17.5h7"/></svg>
+      </div>
+      <p>{{ 'sections.collection_builder.empty' | t }}</p>
+      <span class="cb-empty-hint">{{ 'sections.collection_builder.hint' | t }}</span>
+    </div>
+    <div class="cb-fan" id="cbFan"></div>
+    <div class="cb-list" id="cbList"></div>
+  </div>
+
+  <div class="cb-drawer-footer" id="cbFooter" style="display:none">
+    <div class="cb-stats">
+      <span class="cb-stats-count" id="cbStatsCount">0 {{ 'sections.collection_builder.items' | t }}</span>
+      <span class="cb-stats-value" id="cbStatsValue"></span>
+    </div>
+    <button class="btn-primary cb-share-btn" id="cbShare">{{ 'sections.collection_builder.share' | t }}</button>
+  </div>
+</aside>
+<div class="cb-overlay" id="cbOverlay"></div>
+
+<script>
+  (function() {
+    var KEY = 'fec_collection';
+    var drawer = document.getElementById('cbDrawer');
+    var overlay = document.getElementById('cbOverlay');
+    var trigger = document.getElementById('cbTrigger');
+    var closeBtn = document.getElementById('cbClose');
+    var countEl = document.getElementById('cbCount');
+    var fan = document.getElementById('cbFan');
+    var list = document.getElementById('cbList');
+    var empty = document.getElementById('cbEmpty');
+    var footer = document.getElementById('cbFooter');
+    var statsCount = document.getElementById('cbStatsCount');
+
+    function getItems() { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch(e) { return []; } }
+    function saveItems(items) { localStorage.setItem(KEY, JSON.stringify(items)); }
+
+    function render() {
+      var items = getItems();
+      countEl.textContent = items.length;
+      if (items.length === 0) {
+        empty.style.display = ''; fan.innerHTML = ''; list.innerHTML = ''; footer.style.display = 'none';
+        return;
+      }
+      empty.style.display = 'none'; footer.style.display = '';
+      statsCount.textContent = items.length + ' item' + (items.length > 1 ? 's' : '');
+
+      fan.innerHTML = '';
+      items.slice(-5).forEach(function(item, i) {
+        var card = document.createElement('div');
+        card.className = 'cb-fan-card';
+        card.style.setProperty('--fan-i', i);
+        card.style.setProperty('--fan-total', Math.min(items.length, 5));
+        if (item.image) { card.innerHTML = '<img src="' + item.image + '" alt="" width="80" height="112">'; }
+        fan.appendChild(card);
+      });
+
+      list.innerHTML = '';
+      items.forEach(function(item, idx) {
+        var row = document.createElement('div');
+        row.className = 'cb-list-item';
+        row.innerHTML = '<span class="cb-list-name">' + item.name + '</span><span class="cb-list-price">' + (item.price || '') + '</span><button class="cb-list-remove" data-idx="' + idx + '">&times;</button>';
+        list.appendChild(row);
+      });
+
+      list.querySelectorAll('.cb-list-remove').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var items = getItems(); items.splice(parseInt(btn.dataset.idx), 1); saveItems(items); render();
+        });
+      });
+    }
+
+    function open() { drawer.classList.add('cb-drawer--open'); overlay.classList.add('cb-overlay--visible'); drawer.setAttribute('aria-hidden', 'false'); render(); }
+    function close() { drawer.classList.remove('cb-drawer--open'); overlay.classList.remove('cb-overlay--visible'); drawer.setAttribute('aria-hidden', 'true'); }
+
+    if (trigger) trigger.addEventListener('click', open);
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    if (overlay) overlay.addEventListener('click', close);
+
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('[data-add-to-collection]');
+      if (!btn) return;
+      var items = getItems();
+      var newItem = { id: btn.dataset.productId || Date.now(), name: btn.dataset.productName || 'Item', price: btn.dataset.productPrice || '', image: btn.dataset.productImage || '' };
+      if (!items.find(function(i) { return i.id === newItem.id; })) { items.push(newItem); saveItems(items); }
+      countEl.textContent = items.length;
+      btn.classList.add('cb-added'); setTimeout(function() { btn.classList.remove('cb-added'); }, 600);
+    });
+
+    render();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.collection_builder.name",
+  "tag": "div",
+  "settings": [],
+  "presets": [
+    {
+      "name": "t:sections.collection_builder.presets.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "product_main": {
+      "type": "product-main",
+      "settings": {}
+    },
+    "condition_grading": {
+      "type": "condition-grading",
+      "settings": {
+        "eyebrow": "Trust & Transparency",
+        "heading": "<p>Our <em>grading standard</em></p>"
+      }
+    },
+    "auth_badge": {
+      "type": "auth-badge",
+      "settings": {
+        "eyebrow": "Authenticity Guarantee",
+        "heading": "<p>Every piece <em>verified</em></p>"
+      }
+    }
+  },
+  "order": [
+    "product_main",
+    "condition_grading",
+    "auth_badge"
+  ]
+}

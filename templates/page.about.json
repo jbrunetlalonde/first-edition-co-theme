@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "about_hero": {
+      "type": "about-hero",
+      "settings": {
+        "eyebrow": "Our Story",
+        "heading": "<p>Built by <em>collectors,</em> for collectors</p>"
+      },
+      "blocks": {
+        "v1": { "type": "value", "settings": { "title": "Authenticity First", "description": "Every item is verified genuine. No reproductions, no fakes, no exceptions." } },
+        "v2": { "type": "value", "settings": { "title": "Fair Pricing", "description": "We price based on real market data. You'll never overpay for condition or rarity." } },
+        "v3": { "type": "value", "settings": { "title": "Collector Care", "description": "Museum-grade packaging, insured shipping, and a 14-day return policy on every order." } },
+        "v4": { "type": "value", "settings": { "title": "Community", "description": "Join thousands of collectors on our Discord. Trade tips, share pulls, and connect." } }
+      },
+      "block_order": ["v1", "v2", "v3", "v4"]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "eyebrow": "Customer reviews",
+        "heading": "<p>What our <em>collectors say</em></p>"
+      }
+    }
+  },
+  "order": ["about_hero", "testimonials"]
+}

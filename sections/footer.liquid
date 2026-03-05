@@ -1,0 +1,134 @@
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a class="nav-logo" href="/">{{ shop.name | split: ' ' | first }} <span>{{ shop.name | split: ' ' | slice: 1 }}</span> {{ shop.name | split: ' ' | last }}</a>
+      {%- if section.settings.description != blank -%}
+        <p>{{ section.settings.description }}</p>
+      {%- endif -%}
+      {% render 'social-icons' %}
+    </div>
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'menu' -%}
+        <div class="footer-col" {{ block.shopify_attributes }}>
+          <h4>{{ block.settings.heading }}</h4>
+          {%- if block.settings.menu != blank -%}
+            <ul>
+              {%- for link in block.settings.menu.links -%}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      {%- elsif block.type == 'links' -%}
+        <div class="footer-col" {{ block.shopify_attributes }}>
+          <h4>{{ block.settings.heading }}</h4>
+          <ul>
+            {%- if block.settings.link_1_label != blank -%}
+              <li><a href="{{ block.settings.link_1_url }}">{{ block.settings.link_1_label }}</a></li>
+            {%- endif -%}
+            {%- if block.settings.link_2_label != blank -%}
+              <li><a href="{{ block.settings.link_2_url }}">{{ block.settings.link_2_label }}</a></li>
+            {%- endif -%}
+            {%- if block.settings.link_3_label != blank -%}
+              <li><a href="{{ block.settings.link_3_url }}">{{ block.settings.link_3_label }}</a></li>
+            {%- endif -%}
+            {%- if block.settings.link_4_label != blank -%}
+              <li><a href="{{ block.settings.link_4_url }}">{{ block.settings.link_4_label }}</a></li>
+            {%- endif -%}
+            {%- if block.settings.link_5_label != blank -%}
+              <li><a href="{{ block.settings.link_5_url }}">{{ block.settings.link_5_label }}</a></li>
+            {%- endif -%}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'sections.footer.rights' | t }}</p>
+    <div class="footer-legal">
+      {%- if section.settings.privacy_url != blank -%}
+        <a href="{{ section.settings.privacy_url }}">{{ 'sections.footer.privacy' | t }}</a>
+      {%- endif -%}
+      {%- if section.settings.terms_url != blank -%}
+        <a href="{{ section.settings.terms_url }}">{{ 'sections.footer.terms' | t }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "t:sections.footer.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "description",
+      "default": "Authentic trading cards and retro video games. The trusted shop for collectors.",
+      "label": "t:sections.footer.settings.description.label"
+    },
+    {
+      "type": "url",
+      "id": "privacy_url",
+      "label": "t:sections.footer.settings.privacy_url.label"
+    },
+    {
+      "type": "url",
+      "id": "terms_url",
+      "label": "t:sections.footer.settings.terms_url.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "t:sections.footer.blocks.menu.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Menu",
+          "label": "t:sections.footer.blocks.menu.settings.heading.label"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "t:sections.footer.blocks.menu.settings.menu.label"
+        }
+      ]
+    },
+    {
+      "type": "links",
+      "name": "t:sections.footer.blocks.links.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Policies",
+          "label": "t:sections.footer.blocks.menu.settings.heading.label"
+        },
+        { "type": "text", "id": "link_1_label", "label": "Link 1 label" },
+        { "type": "url", "id": "link_1_url", "label": "Link 1 URL" },
+        { "type": "text", "id": "link_2_label", "label": "Link 2 label" },
+        { "type": "url", "id": "link_2_url", "label": "Link 2 URL" },
+        { "type": "text", "id": "link_3_label", "label": "Link 3 label" },
+        { "type": "url", "id": "link_3_url", "label": "Link 3 URL" },
+        { "type": "text", "id": "link_4_label", "label": "Link 4 label" },
+        { "type": "url", "id": "link_4_url", "label": "Link 4 URL" },
+        { "type": "text", "id": "link_5_label", "label": "Link 5 label" },
+        { "type": "url", "id": "link_5_url", "label": "Link 5 URL" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "t:sections.footer.presets.name",
+      "blocks": [
+        { "type": "menu", "settings": { "heading": "TCG Cards" } },
+        { "type": "menu", "settings": { "heading": "Retro Games" } },
+        { "type": "links", "settings": { "heading": "Policies", "link_1_label": "Shipping", "link_2_label": "Returns & Refunds", "link_3_label": "Payment Policy", "link_4_label": "About Us", "link_5_label": "Contact" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

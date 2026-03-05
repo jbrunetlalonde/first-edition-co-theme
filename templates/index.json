@@ -1,0 +1,142 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {}
+    },
+    "ticker": {
+      "type": "ticker",
+      "settings": {},
+      "blocks": {
+        "announcement_1": { "type": "announcement", "settings": { "badge": "NEW", "text": "Pokemon 151 - Singles available" } },
+        "announcement_2": { "type": "announcement", "settings": { "badge": "RETRO", "text": "Zelda Ocarina of Time CIB - N64 - $180" } },
+        "announcement_3": { "type": "announcement", "settings": { "badge": "TCG", "text": "One Piece Romance Dawn - sealed packs" } },
+        "announcement_4": { "type": "announcement", "settings": { "badge": "SOLD", "text": "Charizard Base Set 1st Edition - $2,400" } },
+        "announcement_5": { "type": "announcement", "settings": { "badge": "ARRIVAL", "text": "SNES lot 12 games - CIB complete" } }
+      },
+      "block_order": ["announcement_1", "announcement_2", "announcement_3", "announcement_4", "announcement_5"]
+    },
+    "category_split": {
+      "type": "category-split",
+      "settings": {},
+      "blocks": {
+        "tcg": { "type": "category", "settings": { "eyebrow": "Section 01", "heading": "<p>Trading <em>cards</em></p>", "description": "Pokemon, Magic: The Gathering, One Piece, Lorcana and more. Singles, boosters and sealed product.", "link_label": "Browse cards", "bg_class": "cat-bg-tcg" } },
+        "retro": { "type": "category", "settings": { "eyebrow": "Section 02", "heading": "<p>Retro <em>video games</em></p>", "description": "SNES, N64, Game Boy, PS1, Sega and more. Cartridges, complete games (CIB) and consoles.", "link_label": "Browse games", "bg_class": "cat-bg-retro" } }
+      },
+      "block_order": ["tcg", "retro"]
+    },
+    "featured_products": {
+      "type": "featured-products",
+      "settings": {
+        "eyebrow": "TCG Cards - Selection",
+        "heading": "<p>Featured <em>singles</em></p>",
+        "link_label": "All singles"
+      }
+    },
+    "tcg_sets": {
+      "type": "tcg-sets",
+      "settings": {
+        "eyebrow": "By universe",
+        "heading": "<p>TCG <em>collections</em></p>",
+        "link_label": "View all"
+      },
+      "blocks": {
+        "pokemon": { "type": "set", "settings": { "name": "Pokemon TCG", "meta": "Singles & Sealed", "count": "+1,240 products" } },
+        "magic": { "type": "set", "settings": { "name": "Magic: The Gathering", "meta": "Singles & Lots", "count": "+890 products" } },
+        "onepiece": { "type": "set", "settings": { "name": "One Piece TCG", "meta": "Singles & Packs", "count": "+430 products" } },
+        "lorcana": { "type": "set", "settings": { "name": "Lorcana", "meta": "Singles & Sealed", "count": "+310 products" } },
+        "dbs": { "type": "set", "settings": { "name": "Dragon Ball Super", "meta": "Singles", "count": "+200 products" } },
+        "yugioh": { "type": "set", "settings": { "name": "Yu-Gi-Oh!", "meta": "Singles & Lots", "count": "+560 products" } }
+      },
+      "block_order": ["pokemon", "magic", "onepiece", "lorcana", "dbs", "yugioh"]
+    },
+    "consoles": {
+      "type": "consoles",
+      "settings": {
+        "label": "Available platforms in store"
+      },
+      "blocks": {
+        "snes": { "type": "console", "settings": { "name": "SNES" } },
+        "n64": { "type": "console", "settings": { "name": "N64" } },
+        "gb": { "type": "console", "settings": { "name": "Game Boy" } },
+        "ps": { "type": "console", "settings": { "name": "PlayStation" } },
+        "sega": { "type": "console", "settings": { "name": "Sega" } },
+        "nes": { "type": "console", "settings": { "name": "NES" } },
+        "gg": { "type": "console", "settings": { "name": "Game Gear" } }
+      },
+      "block_order": ["snes", "n64", "gb", "ps", "sega", "nes", "gg"]
+    },
+    "retro_games": {
+      "type": "retro-games",
+      "settings": {
+        "eyebrow": "Retro Video Games",
+        "heading": "<p>Recent <em>arrivals</em></p>",
+        "link_label": "All games"
+      }
+    },
+    "the_vault": {
+      "type": "the-vault",
+      "settings": {
+        "eyebrow": "The Vault",
+        "heading": "<p>Grail <em>pieces</em></p>",
+        "link_label": "View all grails"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "eyebrow": "Customer reviews",
+        "heading": "<p>What our <em>collectors say</em></p>"
+      },
+      "blocks": {
+        "review_1": { "type": "testimonial", "settings": { "rating": 5, "quote": "I found a 1st Edition Charizard in excellent condition. Fair price and truly professional service.", "author": "Marc-Antoine L.", "location": "Montreal, QC" } },
+        "review_2": { "type": "testimonial", "settings": { "rating": 5, "quote": "Great selection of CIB N64 games. Rare to find games this well preserved with boxes and manuals.", "author": "Sasha D.", "location": "Quebec, QC" } },
+        "review_3": { "type": "testimonial", "settings": { "rating": 5, "quote": "The go-to shop for collectors in Quebec. TCG and retro under one roof, authentic pieces, fast shipping.", "author": "Kevin T.", "location": "Gatineau, QC" } }
+      },
+      "block_order": ["review_1", "review_2", "review_3"]
+    },
+    "time_machine": {
+      "type": "time-machine",
+      "settings": {
+        "eyebrow": "Time Machine",
+        "heading": "<p>Browse by <em>era</em></p>"
+      }
+    },
+    "rarity_pulse": {
+      "type": "rarity-pulse",
+      "settings": {
+        "eyebrow": "Market Intelligence",
+        "heading": "<p>Rarity <em>pulse</em></p>"
+      }
+    },
+    "drop_calendar": {
+      "type": "drop-calendar",
+      "settings": {
+        "eyebrow": "Drop Calendar",
+        "heading": "<p>Upcoming <em>drops</em></p>"
+      }
+    },
+    "auth_badge": {
+      "type": "auth-badge",
+      "settings": {
+        "eyebrow": "Authenticity Guarantee",
+        "heading": "<p>Every piece <em>verified</em></p>"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "ticker",
+    "category_split",
+    "the_vault",
+    "featured_products",
+    "tcg_sets",
+    "consoles",
+    "retro_games",
+    "time_machine",
+    "rarity_pulse",
+    "drop_calendar",
+    "testimonials",
+    "auth_badge"
+  ]
+}

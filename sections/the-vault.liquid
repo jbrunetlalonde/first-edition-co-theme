@@ -1,0 +1,168 @@
+<section class="vault" id="vault">
+  <div class="section-header vault-header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+    </div>
+    {%- if section.settings.link_label != blank -%}
+      <a href="{{ section.settings.link_url }}" class="section-link">{{ section.settings.link_label }}</a>
+    {%- endif -%}
+  </div>
+  <div class="vault-track">
+    {%- for block in section.blocks -%}
+      <div class="vault-item" {{ block.shopify_attributes }} data-vault-item>
+        <div class="vault-spotlight"></div>
+        <div class="vault-card" data-tilt>
+          <div class="vault-card-inner">
+            {%- if block.settings.image != blank -%}
+              <img
+                src="{{ block.settings.image | image_url: width: 480 }}"
+                alt="{{ block.settings.name | escape }}"
+                loading="lazy"
+                width="240"
+                height="336"
+                class="vault-card-img"
+              >
+            {%- else -%}
+              <div class="vault-card-placeholder">
+                <span class="vault-card-placeholder-icon">&#9733;</span>
+              </div>
+            {%- endif -%}
+            <div class="vault-holo-layer"></div>
+          </div>
+        </div>
+        <div class="vault-meta">
+          <span class="vault-badge">{{ block.settings.badge }}</span>
+          <h3 class="vault-name">{{ block.settings.name }}</h3>
+          <p class="vault-detail">{{ block.settings.detail }}</p>
+          <div class="vault-price-row">
+            <span class="vault-price">{{ block.settings.price }}</span>
+            {%- if block.settings.last_sold != blank -%}
+              <span class="vault-last-sold">{{ 'sections.vault.last_sold' | t }}: {{ block.settings.last_sold }}</span>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+  <div class="vault-scroll-hint">
+    <span class="vault-scroll-arrow">&larr;</span>
+    <span>{{ 'sections.vault.scroll_hint' | t }}</span>
+    <span class="vault-scroll-arrow">&rarr;</span>
+  </div>
+</section>
+
+<script>
+  (function() {
+    document.querySelectorAll('[data-tilt]').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width;
+        var y = (e.clientY - rect.top) / rect.height;
+        var rotateY = (x - 0.5) * 20;
+        var rotateX = (0.5 - y) * 20;
+        card.style.transform = 'perspective(600px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale(1.05)';
+        var holo = card.querySelector('.vault-holo-layer');
+        if (holo) { holo.style.opacity = '1'; holo.style.backgroundPosition = (x * 100) + '% ' + (y * 100) + '%'; }
+      });
+      card.addEventListener('mouseleave', function() {
+        card.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';
+        var holo = card.querySelector('.vault-holo-layer');
+        if (holo) { holo.style.opacity = '0'; }
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.vault.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "The Vault",
+      "label": "t:sections.vault.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Grail <em>pieces</em></p>",
+      "label": "t:sections.vault.settings.heading.label"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "default": "View all grails",
+      "label": "t:sections.vault.settings.link_label.label"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "t:sections.vault.settings.link_url.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grail",
+      "name": "t:sections.vault.blocks.grail.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.vault.blocks.grail.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "default": "GRAIL",
+          "label": "t:sections.vault.blocks.grail.settings.badge.label"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "Charizard 1st Edition",
+          "label": "t:sections.vault.blocks.grail.settings.name.label"
+        },
+        {
+          "type": "text",
+          "id": "detail",
+          "default": "Base Set 1999 - PSA 9",
+          "label": "t:sections.vault.blocks.grail.settings.detail.label"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "default": "$12,500",
+          "label": "t:sections.vault.blocks.grail.settings.price.label"
+        },
+        {
+          "type": "text",
+          "id": "last_sold",
+          "label": "t:sections.vault.blocks.grail.settings.last_sold.label"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "t:sections.vault.blocks.grail.settings.link_url.label"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "t:sections.vault.presets.name",
+      "blocks": [
+        { "type": "grail", "settings": { "badge": "GRAIL", "name": "Charizard 1st Edition", "detail": "Base Set 1999 - PSA 9", "price": "$12,500", "last_sold": "$11,800" } },
+        { "type": "grail", "settings": { "badge": "RARE", "name": "Black Lotus", "detail": "Alpha - HP", "price": "$18,000" } },
+        { "type": "grail", "settings": { "badge": "SEALED", "name": "Pokemon Base Set Booster Box", "detail": "1999 - WOTC", "price": "$24,000" } },
+        { "type": "grail", "settings": { "badge": "GRAIL", "name": "Zelda Ocarina of Time", "detail": "N64 - CIB Mint - VGA 85+", "price": "$2,800" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

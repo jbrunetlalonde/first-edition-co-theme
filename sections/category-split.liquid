@@ -1,0 +1,84 @@
+<div class="category-split">
+  {%- for block in section.blocks -%}
+    <div class="cat-panel" {{ block.shopify_attributes }}>
+      <div class="cat-bg {{ block.settings.bg_class }}"></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        {%- if block.settings.eyebrow != blank -%}
+          <p class="cat-eyebrow">{{ block.settings.eyebrow }}</p>
+        {%- endif -%}
+        <h2 class="cat-title">{{ block.settings.heading }}</h2>
+        {%- if block.settings.description != blank -%}
+          <p class="cat-sub">{{ block.settings.description }}</p>
+        {%- endif -%}
+        {%- if block.settings.link_label != blank -%}
+          <a href="{{ block.settings.link_url }}" class="cat-cta">{{ block.settings.link_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.category_split.name",
+  "tag": "section",
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "type": "category",
+      "name": "t:sections.category_split.blocks.category.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "default": "Section 01",
+          "label": "t:sections.category_split.blocks.category.settings.eyebrow.label"
+        },
+        {
+          "type": "richtext",
+          "id": "heading",
+          "default": "<p>Trading <em>cards</em></p>",
+          "label": "t:sections.category_split.blocks.category.settings.heading.label"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "default": "Pokemon, Magic: The Gathering, One Piece, Lorcana and more. Singles, boosters and sealed product.",
+          "label": "t:sections.category_split.blocks.category.settings.description.label"
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "default": "Browse cards",
+          "label": "t:sections.category_split.blocks.category.settings.link_label.label"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "t:sections.category_split.blocks.category.settings.link_url.label"
+        },
+        {
+          "type": "select",
+          "id": "bg_class",
+          "default": "cat-bg-tcg",
+          "label": "t:sections.category_split.blocks.category.settings.bg_style.label",
+          "options": [
+            { "value": "cat-bg-tcg", "label": "TCG" },
+            { "value": "cat-bg-retro", "label": "Retro" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.category_split.presets.name",
+      "blocks": [
+        { "type": "category", "settings": { "eyebrow": "Section 01", "heading": "<p>Trading <em>cards</em></p>", "bg_class": "cat-bg-tcg" } },
+        { "type": "category", "settings": { "eyebrow": "Section 02", "heading": "<p>Retro <em>video games</em></p>", "bg_class": "cat-bg-retro" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

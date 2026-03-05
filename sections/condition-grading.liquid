@@ -1,0 +1,155 @@
+<section class="grading">
+  <div class="section-header">
+    <div>
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="section-eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="section-title">{{ section.settings.heading }}</h2>
+    </div>
+  </div>
+  <p class="grading-intro">{{ section.settings.description }}</p>
+  <div class="grading-scale">
+    {%- for block in section.blocks -%}
+      <button class="grading-step {% if forloop.last %}grading-step--active{% endif %}" data-grade="{{ block.settings.code }}" {{ block.shopify_attributes }}>
+        <div class="grading-step-bar">
+          <div class="grading-step-fill" style="--grade-pct: {{ block.settings.percentage }}%"></div>
+        </div>
+        <span class="grading-step-code">{{ block.settings.code }}</span>
+        <span class="grading-step-label">{{ block.settings.label }}</span>
+      </button>
+    {%- endfor -%}
+  </div>
+  <div class="grading-detail" id="gradingDetail">
+    {%- for block in section.blocks -%}
+      <div class="grading-detail-panel {% if forloop.last %}grading-detail-panel--active{% endif %}" data-grade-panel="{{ block.settings.code }}">
+        <div class="grading-detail-content">
+          <h3 class="grading-detail-title">{{ block.settings.label }} <span>({{ block.settings.code }})</span></h3>
+          <p class="grading-detail-desc">{{ block.settings.description }}</p>
+          <ul class="grading-detail-checks">
+            {%- if block.settings.check_1 != blank -%}<li>{{ block.settings.check_1 }}</li>{%- endif -%}
+            {%- if block.settings.check_2 != blank -%}<li>{{ block.settings.check_2 }}</li>{%- endif -%}
+            {%- if block.settings.check_3 != blank -%}<li>{{ block.settings.check_3 }}</li>{%- endif -%}
+          </ul>
+        </div>
+        {%- if block.settings.example_image != blank -%}
+          <div class="grading-detail-img">
+            <img src="{{ block.settings.example_image | image_url: width: 400 }}" alt="{{ block.settings.label }} {{ 'sections.grading.example' | t }}" loading="lazy" width="200" height="280">
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+<script>
+  (function() {
+    var steps = document.querySelectorAll('.grading-step');
+    var panels = document.querySelectorAll('.grading-detail-panel');
+    steps.forEach(function(step) {
+      step.addEventListener('click', function() {
+        var grade = step.getAttribute('data-grade');
+        steps.forEach(function(s) { s.classList.remove('grading-step--active'); });
+        panels.forEach(function(p) { p.classList.remove('grading-detail-panel--active'); });
+        step.classList.add('grading-step--active');
+        var target = document.querySelector('[data-grade-panel="' + grade + '"]');
+        if (target) target.classList.add('grading-detail-panel--active');
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.grading.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Trust & Transparency",
+      "label": "t:sections.grading.settings.eyebrow.label"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "default": "<p>Our <em>grading standard</em></p>",
+      "label": "t:sections.grading.settings.heading.label"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "default": "Every item is inspected and graded in-house. Here's what each condition grade means.",
+      "label": "t:sections.grading.settings.description.label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grade",
+      "name": "t:sections.grading.blocks.grade.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "code",
+          "default": "NM",
+          "label": "t:sections.grading.blocks.grade.settings.code.label"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "default": "Near Mint",
+          "label": "t:sections.grading.blocks.grade.settings.label_text.label"
+        },
+        {
+          "type": "range",
+          "id": "percentage",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 90,
+          "label": "t:sections.grading.blocks.grade.settings.percentage.label"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "default": "Card shows minimal to no wear. Corners are sharp, surface is clean with no scratches visible to the naked eye.",
+          "label": "t:sections.grading.blocks.grade.settings.description.label"
+        },
+        {
+          "type": "text",
+          "id": "check_1",
+          "label": "t:sections.grading.blocks.grade.settings.check.label"
+        },
+        {
+          "type": "text",
+          "id": "check_2",
+          "label": "t:sections.grading.blocks.grade.settings.check.label"
+        },
+        {
+          "type": "text",
+          "id": "check_3",
+          "label": "t:sections.grading.blocks.grade.settings.check.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "example_image",
+          "label": "t:sections.grading.blocks.grade.settings.example_image.label"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 7,
+  "presets": [
+    {
+      "name": "t:sections.grading.presets.name",
+      "blocks": [
+        { "type": "grade", "settings": { "code": "DMG", "label": "Damaged", "percentage": 10, "description": "Significant damage: tears, heavy creases, water damage, or missing pieces.", "check_1": "Major structural damage", "check_2": "May affect card identification", "check_3": "Playable with sleeves only" } },
+        { "type": "grade", "settings": { "code": "HP", "label": "Heavily Played", "percentage": 25, "description": "Significant wear visible. Heavy edge whitening, creases, or surface scratches.", "check_1": "Noticeable creases or bends", "check_2": "Heavy edge wear", "check_3": "Surface scratches visible" } },
+        { "type": "grade", "settings": { "code": "MP", "label": "Moderately Played", "percentage": 45, "description": "Moderate wear. Some edge whitening, light scratches, minor corner wear.", "check_1": "Light scratches on surface", "check_2": "Minor edge whitening", "check_3": "Slight corner wear" } },
+        { "type": "grade", "settings": { "code": "LP", "label": "Lightly Played", "percentage": 65, "description": "Light wear only. Minimal edge whitening, no creases, very minor surface marks.", "check_1": "Minimal edge whitening", "check_2": "No creases", "check_3": "Corners mostly sharp" } },
+        { "type": "grade", "settings": { "code": "NM", "label": "Near Mint", "percentage": 85, "description": "Minimal to no wear. Corners are sharp, surface is clean with no scratches visible.", "check_1": "Sharp corners", "check_2": "Clean surface", "check_3": "No visible wear" } },
+        { "type": "grade", "settings": { "code": "M", "label": "Mint", "percentage": 95, "description": "Perfect or near-perfect condition. No wear, perfect centering, pristine surface.", "check_1": "Factory fresh appearance", "check_2": "Perfect centering", "check_3": "No handling marks" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
