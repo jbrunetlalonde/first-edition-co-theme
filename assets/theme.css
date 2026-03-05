@@ -652,10 +652,21 @@ footer { padding: 64px 48px 40px; background: var(--ink-3); border-top: 1px soli
 
 .social-icons { display: flex; gap: 12px; margin-top: 20px; }
 .social-icon { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border: 1px solid var(--border); color: var(--muted); transition: all 0.2s; }
-.social-icon:hover { color: var(--gold); border-color: var(--gold); background: rgba(200,169,110,0.06); }
-.social-icon--ebay { padding: 0; }
+.social-icon:hover { border-color: currentColor; background: rgba(255,255,255,0.04); }
+.social-icon--discord { color: #5865F2; border-color: rgba(88,101,242,0.3); }
+.social-icon--discord:hover { border-color: #5865F2; background: rgba(88,101,242,0.08); }
+.social-icon--tiktok { color: #FF004F; border-color: rgba(255,0,79,0.3); }
+.social-icon--tiktok:hover { border-color: #FF004F; background: rgba(255,0,79,0.08); }
+.social-icon--ebay { padding: 0; border-color: rgba(229,50,56,0.3); }
+.social-icon--ebay:hover { border-color: #E53238; background: rgba(229,50,56,0.08); }
 .ebay-wordmark { font-family: 'Arial', 'Helvetica', sans-serif; font-size: 13px; font-weight: 700; font-style: italic; letter-spacing: -0.5px; line-height: 1; }
 .social-icon--ebay:hover .ebay-wordmark span { filter: brightness(1.2); }
+.social-icon--instagram { color: #E4405F; border-color: rgba(228,64,95,0.3); }
+.social-icon--instagram:hover { border-color: #E4405F; background: rgba(228,64,95,0.08); }
+.social-icon--facebook { color: #1877F2; border-color: rgba(24,119,242,0.3); }
+.social-icon--facebook:hover { border-color: #1877F2; background: rgba(24,119,242,0.08); }
+.social-icon--youtube { color: #FF0000; border-color: rgba(255,0,0,0.3); }
+.social-icon--youtube:hover { border-color: #FF0000; background: rgba(255,0,0,0.08); }
 
 /* ============================================
    Product Card Link (shared)
