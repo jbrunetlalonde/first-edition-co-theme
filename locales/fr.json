@@ -14,6 +14,18 @@
     }
   },
   "sections": {
+    "cart": {
+      "name": "Panier",
+      "title": "Votre panier",
+      "quantity": "Quantite",
+      "subtotal": "Sous-total",
+      "shipping_note": "Livraison et taxes calculees a la caisse.",
+      "update": "Mettre a jour",
+      "checkout": "Passer a la caisse",
+      "empty": "Votre panier est vide.",
+      "continue": "Continuer vos achats",
+      "presets": { "name": "Panier" }
+    },
     "header": {
       "name": "En-tete"
     },

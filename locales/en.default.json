@@ -15,6 +15,18 @@
     }
   },
   "sections": {
+    "cart": {
+      "name": "Cart",
+      "title": "Your Cart",
+      "quantity": "Quantity",
+      "subtotal": "Subtotal",
+      "shipping_note": "Shipping and taxes calculated at checkout.",
+      "update": "Update cart",
+      "checkout": "Checkout",
+      "empty": "Your cart is empty.",
+      "continue": "Continue shopping",
+      "presets": { "name": "Cart" }
+    },
     "header": {
       "name": "Header",
       "settings": {
