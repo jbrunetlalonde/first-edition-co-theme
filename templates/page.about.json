@@ -19,7 +19,13 @@
       "settings": {
         "eyebrow": "Customer reviews",
         "heading": "<p>What our <em>collectors say</em></p>"
-      }
+      },
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "rating": 5, "quote": "I found a 1st Edition Charizard in excellent condition. Fair price and truly professional service.", "author": "Marc-Antoine L.", "location": "Montreal, QC" } },
+        "t2": { "type": "testimonial", "settings": { "rating": 5, "quote": "Great selection of CIB N64 games. Rare to find games this well preserved with boxes and manuals.", "author": "Sasha D.", "location": "Quebec, QC" } },
+        "t3": { "type": "testimonial", "settings": { "rating": 5, "quote": "The go-to shop for collectors in Quebec. TCG and retro under one roof, authentic pieces, fast shipping.", "author": "Kevin T.", "location": "Gatineau, QC" } }
+      },
+      "block_order": ["t1", "t2", "t3"]
     }
   },
   "order": ["about_hero", "testimonials"]
