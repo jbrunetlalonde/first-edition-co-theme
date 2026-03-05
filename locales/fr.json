@@ -171,6 +171,7 @@
       "email_label": "Adresse courriel",
       "email_placeholder": "Votre adresse courriel",
       "subscribe": "S'abonner",
+      "success": "C'est fait! Surveillez votre boite pour les derniers drops.",
       "settings": {
         "heading": { "label": "Titre" },
         "description": { "label": "Description" }

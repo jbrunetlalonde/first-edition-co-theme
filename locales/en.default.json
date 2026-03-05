@@ -193,6 +193,7 @@
       "email_label": "Email address",
       "email_placeholder": "Your email address",
       "subscribe": "Subscribe",
+      "success": "You're in! Watch your inbox for the latest drops.",
       "settings": {
         "heading": { "label": "Heading" },
         "description": { "label": "Description" }

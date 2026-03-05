@@ -210,10 +210,13 @@ nav {
 .newsletter { padding: 64px 48px; background: var(--gold); display: flex; align-items: center; justify-content: space-between; gap: 40px; }
 .newsletter-text h3 { font-family: var(--serif); font-size: 32px; font-weight: 400; color: var(--ink); line-height: 1.1; margin-bottom: 8px; }
 .newsletter-text p { font-size: 14px; color: rgba(8,9,13,0.6); }
-.newsletter-form { display: flex; flex: 0 0 420px; }
+.newsletter-form { flex: 0 0 420px; }
+.newsletter-field { display: flex; }
 .newsletter-input { flex: 1; padding: 15px 20px; background: rgba(8,9,13,0.1); border: 1px solid rgba(8,9,13,0.2); color: var(--ink); font-family: var(--sans); font-size: 14px; outline: none; }
 .newsletter-input::placeholder { color: rgba(8,9,13,0.4); }
 .newsletter-btn { padding: 15px 28px; background: var(--ink); color: var(--gold-2); font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; border: none; cursor: pointer; }
+.newsletter-success { font-family: var(--mono); font-size: 13px; letter-spacing: 0.05em; color: var(--ink); background: rgba(8,9,13,0.08); padding: 14px 20px; border: 1px solid rgba(8,9,13,0.15); }
+.newsletter-error { font-size: 13px; color: #8B0000; margin-top: 8px; }
 
 /* ---- Footer ---- */
 footer { padding: 64px 48px 40px; background: var(--ink-3); border-top: 1px solid var(--border); }
@@ -277,7 +280,8 @@ footer { padding: 64px 48px 40px; background: var(--ink-3); border-top: 1px soli
   .console-item { flex: 0 0 calc(33.333% - 1px); border-bottom: 1px solid var(--border); }
 
   .newsletter { flex-direction: column; padding: 48px 24px; text-align: center; }
-  .newsletter-form { flex: 1 1 100%; width: 100%; flex-direction: column; }
+  .newsletter-form { flex: 1 1 100%; width: 100%; }
+  .newsletter-field { flex-direction: column; }
 
   footer { padding: 48px 24px 32px; }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
