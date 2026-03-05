@@ -23,14 +23,7 @@
         "dbs": { "type": "collection", "settings": { "label": "Dragon Ball Super" } }
       },
       "block_order": ["pokemon", "magic", "onepiece", "yugioh", "lorcana", "dbs"]
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "heading": "Never miss a drop.",
-        "description": "New TCG arrivals, restocks and exclusive subscriber deals."
-      }
     }
   },
-  "order": ["hero", "collections", "newsletter"]
+  "order": ["hero", "collections"]
 }

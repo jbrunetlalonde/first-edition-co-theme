@@ -23,14 +23,7 @@
         "genesis": { "type": "collection", "settings": { "label": "Sega Genesis" } }
       },
       "block_order": ["snes", "n64", "gb", "ps1", "nes", "genesis"]
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "heading": "Get notified on rare finds.",
-        "description": "Retro game restocks, new arrivals and collector deals."
-      }
     }
   },
-  "order": ["hero", "collections", "newsletter"]
+  "order": ["hero", "collections"]
 }
