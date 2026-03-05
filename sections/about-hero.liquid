@@ -31,28 +31,28 @@
 
 {% schema %}
 {
-  "name": "t:sections.about.name",
+  "name": "About page",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Our Story", "label": "t:sections.about.settings.eyebrow.label" },
-    { "type": "richtext", "id": "heading", "default": "<p>Built by <em>collectors,</em> for collectors</p>", "label": "t:sections.about.settings.heading.label" },
-    { "type": "richtext", "id": "body", "default": "<p>First Edition Co was born from a lifelong passion for trading cards and retro gaming. What started as a personal collection grew into a mission: to build the most trusted destination for collectors in Quebec and beyond.</p><p>Every item in our inventory is hand-selected, inspected, and graded by our team. We believe collecting should feel special — from the moment you browse to the moment you hold the piece in your hands.</p>", "label": "t:sections.about.settings.body.label" },
-    { "type": "image_picker", "id": "image", "label": "t:sections.about.settings.image.label" }
+    { "type": "text", "id": "eyebrow", "default": "Our Story", "label": "Eyebrow text" },
+    { "type": "richtext", "id": "heading", "default": "<p>Built by <em>collectors,</em> for collectors</p>", "label": "Heading" },
+    { "type": "richtext", "id": "body", "default": "<p>First Edition Co was born from a lifelong passion for trading cards and retro gaming. What started as a personal collection grew into a mission: to build the most trusted destination for collectors in Quebec and beyond.</p><p>Every item in our inventory is hand-selected, inspected, and graded by our team. We believe collecting should feel special — from the moment you browse to the moment you hold the piece in your hands.</p>", "label": "Body text" },
+    { "type": "image_picker", "id": "image", "label": "Image" }
   ],
   "blocks": [
     {
       "type": "value",
-      "name": "t:sections.about.blocks.value.name",
+      "name": "Value",
       "settings": [
-        { "type": "text", "id": "title", "default": "Authenticity", "label": "t:sections.about.blocks.value.settings.title.label" },
-        { "type": "textarea", "id": "description", "default": "Every item is verified genuine. No reproductions, no fakes, no exceptions.", "label": "t:sections.about.blocks.value.settings.description.label" }
+        { "type": "text", "id": "title", "default": "Authenticity", "label": "Title" },
+        { "type": "textarea", "id": "description", "default": "Every item is verified genuine. No reproductions, no fakes, no exceptions.", "label": "Description" }
       ]
     }
   ],
   "max_blocks": 4,
   "presets": [
     {
-      "name": "t:sections.about.presets.name",
+      "name": "About page",
       "blocks": [
         { "type": "value", "settings": { "title": "Authenticity First", "description": "Every item is verified genuine. No reproductions, no fakes, no exceptions." } },
         { "type": "value", "settings": { "title": "Fair Pricing", "description": "We price based on real market data. You'll never overpay for condition or rarity." } },

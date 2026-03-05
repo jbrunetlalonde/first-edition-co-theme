@@ -16,36 +16,36 @@
 
 {% schema %}
 {
-  "name": "t:sections.consoles.name",
+  "name": "Console platforms",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "label",
       "default": "Available platforms in store",
-      "label": "t:sections.consoles.settings.label.label"
+      "label": "Section label"
     }
   ],
   "blocks": [
     {
       "type": "console",
-      "name": "t:sections.consoles.blocks.console.name",
+      "name": "Console",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.consoles.blocks.console.settings.image.label"
+          "label": "Icon image"
         },
         {
           "type": "text",
           "id": "name",
           "default": "SNES",
-          "label": "t:sections.consoles.blocks.console.settings.name.label"
+          "label": "Console name"
         },
         {
           "type": "url",
           "id": "link_url",
-          "label": "t:sections.consoles.blocks.console.settings.link_url.label"
+          "label": "Link URL"
         }
       ]
     }
@@ -53,7 +53,7 @@
   "max_blocks": 10,
   "presets": [
     {
-      "name": "t:sections.consoles.presets.name",
+      "name": "Console platforms",
       "blocks": [
         { "type": "console", "settings": { "name": "SNES" } },
         { "type": "console", "settings": { "name": "N64" } },

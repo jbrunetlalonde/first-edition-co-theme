@@ -22,32 +22,32 @@
 
 {% schema %}
 {
-  "name": "t:sections.ticker.name",
+  "name": "Announcement ticker",
   "tag": "div",
   "max_blocks": 10,
   "blocks": [
     {
       "type": "announcement",
-      "name": "t:sections.ticker.blocks.announcement.name",
+      "name": "Announcement",
       "settings": [
         {
           "type": "text",
           "id": "badge",
           "default": "NEW",
-          "label": "t:sections.ticker.blocks.announcement.settings.badge.label"
+          "label": "Badge text"
         },
         {
           "type": "text",
           "id": "text",
           "default": "Pokemon 151 - Singles available",
-          "label": "t:sections.ticker.blocks.announcement.settings.text.label"
+          "label": "Announcement text"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.ticker.presets.name",
+      "name": "Announcement ticker",
       "blocks": [
         { "type": "announcement", "settings": { "badge": "NEW", "text": "Pokemon 151 - Singles available" } },
         { "type": "announcement", "settings": { "badge": "RETRO", "text": "Zelda Ocarina of Time CIB - N64 - $180" } },

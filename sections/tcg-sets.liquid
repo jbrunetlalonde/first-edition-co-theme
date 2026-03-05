@@ -28,65 +28,65 @@
 
 {% schema %}
 {
-  "name": "t:sections.tcg_sets.name",
+  "name": "TCG collections",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
       "default": "By universe",
-      "label": "t:sections.tcg_sets.settings.eyebrow.label"
+      "label": "Eyebrow text"
     },
     {
       "type": "richtext",
       "id": "heading",
       "default": "<p>TCG <em>collections</em></p>",
-      "label": "t:sections.tcg_sets.settings.heading.label"
+      "label": "Heading"
     },
     {
       "type": "text",
       "id": "link_label",
       "default": "View all",
-      "label": "t:sections.tcg_sets.settings.link_label.label"
+      "label": "Link label"
     },
     {
       "type": "url",
       "id": "link_url",
-      "label": "t:sections.tcg_sets.settings.link_url.label"
+      "label": "Link URL"
     }
   ],
   "blocks": [
     {
       "type": "set",
-      "name": "t:sections.tcg_sets.blocks.set.name",
+      "name": "Collection",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.tcg_sets.blocks.set.settings.image.label"
+          "label": "Icon image"
         },
         {
           "type": "text",
           "id": "name",
           "default": "Pokemon TCG",
-          "label": "t:sections.tcg_sets.blocks.set.settings.name.label"
+          "label": "Name"
         },
         {
           "type": "text",
           "id": "meta",
           "default": "Singles & Sealed",
-          "label": "t:sections.tcg_sets.blocks.set.settings.meta.label"
+          "label": "Meta text"
         },
         {
           "type": "text",
           "id": "count",
           "default": "+1,240 products",
-          "label": "t:sections.tcg_sets.blocks.set.settings.count.label"
+          "label": "Product count"
         },
         {
           "type": "url",
           "id": "link_url",
-          "label": "t:sections.tcg_sets.blocks.set.settings.link_url.label"
+          "label": "Link URL"
         }
       ]
     }
@@ -94,7 +94,7 @@
   "max_blocks": 6,
   "presets": [
     {
-      "name": "t:sections.tcg_sets.presets.name",
+      "name": "TCG collections",
       "blocks": [
         { "type": "set", "settings": { "name": "Pokemon TCG", "meta": "Singles & Sealed", "count": "+1,240 products" } },
         { "type": "set", "settings": { "name": "Magic: The Gathering", "meta": "Singles & Lots", "count": "+890 products" } },

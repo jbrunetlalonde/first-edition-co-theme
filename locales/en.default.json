@@ -11,8 +11,7 @@
   "general": {
     "accessibility": {
       "skip_to_content": "Skip to content",
-      "menu": "Menu",
-      "theme_toggle": "Toggle dark/light mode"
+      "menu": "Menu"
     },
     "cart": {
       "title": "Cart"
@@ -25,7 +24,6 @@
   },
   "sections": {
     "cart": {
-      "name": "Cart",
       "title": "Your Cart",
       "quantity": "Quantity",
       "subtotal": "Subtotal",
@@ -33,382 +31,85 @@
       "update": "Update cart",
       "checkout": "Checkout",
       "empty": "Your cart is empty.",
-      "continue": "Continue shopping",
-      "presets": { "name": "Cart" }
-    },
-    "header": {
-      "name": "Header",
-      "settings": {
-        "menu": {
-          "label": "Menu"
-        }
-      }
-    },
-    "hero": {
-      "name": "Hero banner",
-      "settings": {
-        "image": { "label": "Background image" },
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "subheading": { "label": "Subheading" },
-        "button_label": { "label": "Primary button label" },
-        "button_link": { "label": "Primary button link" },
-        "button_secondary_label": { "label": "Secondary button label" },
-        "button_secondary_link": { "label": "Secondary button link" }
-      },
-      "presets": {
-        "name": "Hero banner"
-      }
+      "continue": "Continue shopping"
     },
     "ticker": {
-      "name": "Announcement ticker",
-      "label": "Latest announcements",
-      "blocks": {
-        "announcement": {
-          "name": "Announcement",
-          "settings": {
-            "badge": { "label": "Badge text" },
-            "text": { "label": "Announcement text" }
-          }
-        }
-      },
-      "presets": {
-        "name": "Announcement ticker"
-      }
-    },
-    "category_split": {
-      "name": "Category split",
-      "blocks": {
-        "category": {
-          "name": "Category",
-          "settings": {
-            "eyebrow": { "label": "Eyebrow text" },
-            "heading": { "label": "Heading" },
-            "description": { "label": "Description" },
-            "link_label": { "label": "Link label" },
-            "link_url": { "label": "Link URL" },
-            "bg_style": { "label": "Background style" }
-          }
-        }
-      },
-      "presets": {
-        "name": "Category split"
-      }
+      "label": "Latest announcements"
     },
     "featured_products": {
-      "name": "Featured products",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "collection": { "label": "Collection" },
-        "link_label": { "label": "Link label" },
-        "link_url": { "label": "Link URL" }
-      },
       "placeholder": {
         "set": "Collection",
         "name": "Product name",
         "condition": "Near Mint",
         "badge": "NEW"
-      },
-      "presets": {
-        "name": "Featured products"
-      }
-    },
-    "tcg_sets": {
-      "name": "TCG collections",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "link_label": { "label": "Link label" },
-        "link_url": { "label": "Link URL" }
-      },
-      "blocks": {
-        "set": {
-          "name": "Collection",
-          "settings": {
-            "image": { "label": "Icon image" },
-            "name": { "label": "Name" },
-            "meta": { "label": "Meta text" },
-            "count": { "label": "Product count" },
-            "link_url": { "label": "Link URL" }
-          }
-        }
-      },
-      "presets": {
-        "name": "TCG collections"
-      }
-    },
-    "consoles": {
-      "name": "Console platforms",
-      "settings": {
-        "label": { "label": "Section label" }
-      },
-      "blocks": {
-        "console": {
-          "name": "Console",
-          "settings": {
-            "image": { "label": "Icon image" },
-            "name": { "label": "Console name" },
-            "link_url": { "label": "Link URL" }
-          }
-        }
-      },
-      "presets": {
-        "name": "Console platforms"
       }
     },
     "retro_games": {
-      "name": "Retro games",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "collection": { "label": "Collection" },
-        "link_label": { "label": "Link label" },
-        "link_url": { "label": "Link URL" }
-      },
       "placeholder": {
         "platform": "Platform",
         "name": "Game title",
         "condition": "CIB - Very good"
-      },
-      "presets": {
-        "name": "Retro games"
       }
     },
     "testimonials": {
-      "name": "Testimonials",
-      "out_of_5": "out of 5",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" }
-      },
-      "blocks": {
-        "testimonial": {
-          "name": "Testimonial",
-          "settings": {
-            "rating": { "label": "Rating" },
-            "quote": { "label": "Quote" },
-            "author": { "label": "Author name" },
-            "location": { "label": "Location" }
-          }
-        }
-      },
-      "presets": {
-        "name": "Testimonials"
-      }
+      "out_of_5": "out of 5"
     },
     "newsletter": {
-      "name": "Newsletter",
       "email_label": "Email address",
       "email_placeholder": "Your email address",
       "subscribe": "Subscribe",
-      "success": "You're in! Watch your inbox for the latest drops.",
-      "settings": {
-        "heading": { "label": "Heading" },
-        "description": { "label": "Description" }
-      },
-      "presets": {
-        "name": "Newsletter"
-      }
+      "success": "You're in! Watch your inbox for the latest drops."
     },
     "vault": {
-      "name": "The Vault",
       "scroll_hint": "Scroll to explore",
-      "last_sold": "Last sold",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "link_label": { "label": "Link label" },
-        "link_url": { "label": "Link URL" }
-      },
-      "blocks": {
-        "grail": {
-          "name": "Grail item",
-          "settings": {
-            "image": { "label": "Image" },
-            "badge": { "label": "Badge" },
-            "name": { "label": "Name" },
-            "detail": { "label": "Detail" },
-            "price": { "label": "Price" },
-            "last_sold": { "label": "Last sold price" },
-            "link_url": { "label": "Link URL" }
-          }
-        }
-      },
-      "presets": { "name": "The Vault" }
+      "last_sold": "Last sold"
     },
     "grading": {
-      "name": "Condition grading",
-      "example": "example",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "description": { "label": "Description" }
-      },
-      "blocks": {
-        "grade": {
-          "name": "Grade level",
-          "settings": {
-            "code": { "label": "Grade code" },
-            "label_text": { "label": "Grade label" },
-            "percentage": { "label": "Quality percentage" },
-            "description": { "label": "Description" },
-            "check": { "label": "Checklist item" },
-            "example_image": { "label": "Example photo" }
-          }
-        }
-      },
-      "presets": { "name": "Condition grading" }
+      "example": "example"
     },
     "collection_builder": {
-      "name": "Collection builder",
       "title": "My Collection",
       "open": "Open collection builder",
       "close": "Close",
       "empty": "Your collection is empty",
       "hint": "Add items from any product page",
       "items": "items",
-      "share": "Share collection",
-      "presets": { "name": "Collection builder" }
-    },
-    "time_machine": {
-      "name": "Time Machine",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" }
-      },
-      "blocks": {
-        "era": {
-          "name": "Era",
-          "settings": {
-            "year": { "label": "Year" },
-            "label_text": { "label": "Era label" },
-            "title": { "label": "Title" },
-            "description": { "label": "Description" },
-            "hue": { "label": "Color hue" },
-            "highlight": { "label": "Highlight name" },
-            "highlight_image": { "label": "Highlight image" },
-            "highlight_url": { "label": "Highlight link" },
-            "cta_label": { "label": "CTA label" },
-            "cta_url": { "label": "CTA link" }
-          }
-        }
-      },
-      "presets": { "name": "Time Machine" }
+      "share": "Share collection"
     },
     "drops": {
-      "name": "Drop calendar",
       "sold": "SOLD",
       "final_price": "Final",
       "days": "days",
       "hours": "hrs",
       "mins": "min",
-      "notify_me": "Notify me",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "description": { "label": "Description" }
-      },
-      "blocks": {
-        "drop": {
-          "name": "Drop",
-          "settings": {
-            "image": { "label": "Image" },
-            "name": { "label": "Name" },
-            "description": { "label": "Description" },
-            "date": { "label": "Drop date (ISO)" },
-            "price": { "label": "Final price" },
-            "sold": { "label": "Sold out" }
-          }
-        }
-      },
-      "presets": { "name": "Drop calendar" }
-    },
-    "auth_badge": {
-      "name": "Authentication badge",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "seal_text": { "label": "Seal description" }
-      },
-      "blocks": {
-        "step": {
-          "name": "Step",
-          "settings": {
-            "icon": { "label": "Icon" },
-            "title": { "label": "Title" },
-            "description": { "label": "Description" }
-          }
-        }
-      },
-      "presets": { "name": "Authentication badge" }
+      "notify_me": "Notify me"
     },
     "pulse": {
-      "name": "Rarity Pulse",
       "our_price": "Our price",
       "market": "Market",
       "last_3": "Last 3 sales",
       "below_market": "Below market",
       "at_market": "At market",
-      "above_market": "Above market",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" }
-      },
-      "blocks": {
-        "item": {
-          "name": "Market item",
-          "settings": {
-            "name": { "label": "Name" },
-            "set": { "label": "Set / details" },
-            "trend": { "label": "Trend direction" },
-            "trend_pct": { "label": "Trend percentage" },
-            "spark_data": { "label": "Sparkline data points" },
-            "our_price": { "label": "Our price" },
-            "market_price": { "label": "Market price" },
-            "last_sales": { "label": "Last 3 sale prices" },
-            "verdict": { "label": "Price verdict" }
-          }
-        }
-      },
-      "presets": { "name": "Rarity Pulse" }
+      "above_market": "Above market"
     },
     "collection_banner": {
-      "name": "Collection banner",
-      "products": "products",
-      "settings": {
-        "show_universe_badge": { "label": "Show universe badge" }
-      },
-      "presets": { "name": "Collection banner" }
-    },
-    "collections_list": {
-      "name": "Collections list",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" }
-      },
-      "presets": { "name": "Collections list" }
+      "products": "products"
     },
     "collection_grid": {
-      "name": "Collection products",
       "filter": "Filter",
       "sort": "Sort by",
-      "pagination": "Pagination",
-      "presets": { "name": "Collection products" }
+      "pagination": "Pagination"
     },
     "product": {
-      "name": "Product page",
       "hover_to_zoom": "Hover to zoom",
       "home": "Home",
       "condition": "Condition",
       "verified": "First Edition Verified",
       "sold_out": "Sold out",
       "add_to_collection": "Add to collection",
-      "description": "Description",
-      "presets": { "name": "Product page" }
+      "description": "Description"
     },
     "contact": {
-      "name": "Contact form",
       "success": "Thank you! We'll get back to you within 24 hours.",
       "name_field": "Name",
       "email": "Email",
@@ -421,114 +122,15 @@
         "authentication": "Authentication request",
         "selling": "I want to sell",
         "other": "Other"
-      },
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "description": { "label": "Description" }
-      },
-      "blocks": {
-        "channel": {
-          "name": "Contact channel",
-          "settings": {
-            "title": { "label": "Title" },
-            "value": { "label": "Value" },
-            "note": { "label": "Note" }
-          }
-        }
-      },
-      "presets": { "name": "Contact form" }
-    },
-    "about": {
-      "name": "About page",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "body": { "label": "Body text" },
-        "image": { "label": "Image" }
-      },
-      "blocks": {
-        "value": {
-          "name": "Value",
-          "settings": {
-            "title": { "label": "Title" },
-            "description": { "label": "Description" }
-          }
-        }
-      },
-      "presets": { "name": "About page" }
+      }
     },
     "policy": {
-      "name": "Policy page",
-      "last_updated": "Last updated",
-      "settings": {
-        "eyebrow": { "label": "Eyebrow text" },
-        "heading": { "label": "Heading" },
-        "updated": { "label": "Last updated date" },
-        "body": { "label": "Body content" }
-      },
-      "presets": { "name": "Policy page" }
+      "last_updated": "Last updated"
     },
     "footer": {
-      "name": "Footer",
       "rights": "All rights reserved.",
       "privacy": "Privacy",
-      "terms": "Terms of use",
-      "settings": {
-        "description": { "label": "Brand description" },
-        "privacy_url": { "label": "Privacy policy URL" },
-        "terms_url": { "label": "Terms of use URL" }
-      },
-      "blocks": {
-        "menu": {
-          "name": "Menu column",
-          "settings": {
-            "heading": { "label": "Column heading" },
-            "menu": { "label": "Menu" }
-          }
-        },
-        "links": {
-          "name": "Link column"
-        }
-      },
-      "presets": {
-        "name": "Footer"
-      }
-    }
-  },
-  "settings_schema": {
-    "colors": {
-      "name": "Colors",
-      "settings": {
-        "header": { "content": "Brand colors" },
-        "gold": { "label": "Primary gold" },
-        "gold_accent": { "label": "Gold accent" },
-        "background": { "label": "Background" },
-        "text": { "label": "Text" }
-      }
-    },
-    "typography": {
-      "name": "Typography",
-      "settings": {
-        "header": { "content": "Fonts" },
-        "font_heading": { "label": "Heading font" },
-        "font_body": { "label": "Body font" }
-      }
-    },
-    "social": {
-      "name": "Social media",
-      "settings": {
-        "header": { "content": "Social media links" }
-      }
-    },
-    "favicon": {
-      "name": "Favicon",
-      "settings": {
-        "image": {
-          "label": "Favicon image",
-          "info": "32 x 32px .png recommended"
-        }
-      }
+      "terms": "Terms of use"
     }
   }
 }

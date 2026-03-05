@@ -8,67 +8,67 @@
     "theme_documentation_url": "https://github.com/firsteditionco/shopify-theme"
   },
   {
-    "name": "t:settings_schema.colors.name",
+    "name": "Colors",
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.colors.settings.header.content"
+        "content": "Brand colors"
       },
       {
         "type": "color",
         "id": "color_gold",
         "default": "#C8A96E",
-        "label": "t:settings_schema.colors.settings.gold.label"
+        "label": "Primary gold"
       },
       {
         "type": "color",
         "id": "color_gold_accent",
         "default": "#E5C98A",
-        "label": "t:settings_schema.colors.settings.gold_accent.label"
+        "label": "Gold accent"
       },
       {
         "type": "color",
         "id": "color_background",
         "default": "#08090D",
-        "label": "t:settings_schema.colors.settings.background.label"
+        "label": "Background"
       },
       {
         "type": "color",
         "id": "color_text",
         "default": "#F4F1EC",
-        "label": "t:settings_schema.colors.settings.text.label"
+        "label": "Text"
       }
     ]
   },
   {
-    "name": "t:settings_schema.typography.name",
+    "name": "Typography",
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.typography.settings.header.content"
+        "content": "Fonts"
       },
       {
         "type": "text",
         "id": "font_heading_name",
         "default": "Cormorant Garamond",
-        "label": "t:settings_schema.typography.settings.font_heading.label",
+        "label": "Heading font",
         "info": "Google Fonts family name"
       },
       {
         "type": "text",
         "id": "font_body_name",
         "default": "DM Sans",
-        "label": "t:settings_schema.typography.settings.font_body.label",
+        "label": "Body font",
         "info": "Google Fonts family name"
       }
     ]
   },
   {
-    "name": "t:settings_schema.social.name",
+    "name": "Social media",
     "settings": [
       {
         "type": "header",
-        "content": "t:settings_schema.social.settings.header.content"
+        "content": "Social media links"
       },
       {
         "type": "url",
@@ -103,13 +103,13 @@
     ]
   },
   {
-    "name": "t:settings_schema.favicon.name",
+    "name": "Favicon",
     "settings": [
       {
         "type": "image_picker",
         "id": "favicon",
-        "label": "t:settings_schema.favicon.settings.image.label",
-        "info": "t:settings_schema.favicon.settings.image.info"
+        "label": "Favicon image",
+        "info": "32 x 32px .png recommended"
       }
     ]
   }

@@ -21,48 +21,48 @@
 
 {% schema %}
 {
-  "name": "t:sections.category_split.name",
+  "name": "Category split",
   "tag": "section",
   "max_blocks": 2,
   "blocks": [
     {
       "type": "category",
-      "name": "t:sections.category_split.blocks.category.name",
+      "name": "Category",
       "settings": [
         {
           "type": "text",
           "id": "eyebrow",
           "default": "Section 01",
-          "label": "t:sections.category_split.blocks.category.settings.eyebrow.label"
+          "label": "Eyebrow text"
         },
         {
           "type": "richtext",
           "id": "heading",
           "default": "<p>Trading <em>cards</em></p>",
-          "label": "t:sections.category_split.blocks.category.settings.heading.label"
+          "label": "Heading"
         },
         {
           "type": "text",
           "id": "description",
           "default": "Pokemon, Magic: The Gathering, One Piece, Lorcana and more. Singles, boosters and sealed product.",
-          "label": "t:sections.category_split.blocks.category.settings.description.label"
+          "label": "Description"
         },
         {
           "type": "text",
           "id": "link_label",
           "default": "Browse cards",
-          "label": "t:sections.category_split.blocks.category.settings.link_label.label"
+          "label": "Link label"
         },
         {
           "type": "url",
           "id": "link_url",
-          "label": "t:sections.category_split.blocks.category.settings.link_url.label"
+          "label": "Link URL"
         },
         {
           "type": "select",
           "id": "bg_class",
           "default": "cat-bg-tcg",
-          "label": "t:sections.category_split.blocks.category.settings.bg_style.label",
+          "label": "Background style",
           "options": [
             { "value": "cat-bg-tcg", "label": "TCG" },
             { "value": "cat-bg-retro", "label": "Retro" }
@@ -73,7 +73,7 @@
   ],
   "presets": [
     {
-      "name": "t:sections.category_split.presets.name",
+      "name": "Category split",
       "blocks": [
         { "type": "category", "settings": { "eyebrow": "Section 01", "heading": "<p>Trading <em>cards</em></p>", "bg_class": "cat-bg-tcg" } },
         { "type": "category", "settings": { "eyebrow": "Section 02", "heading": "<p>Retro <em>video games</em></p>", "bg_class": "cat-bg-retro" } }

@@ -60,28 +60,28 @@
 
 {% schema %}
 {
-  "name": "t:sections.contact.name",
+  "name": "Contact form",
   "tag": "section",
   "settings": [
-    { "type": "text", "id": "eyebrow", "default": "Get in touch", "label": "t:sections.contact.settings.eyebrow.label" },
-    { "type": "richtext", "id": "heading", "default": "<p>Contact <em>us</em></p>", "label": "t:sections.contact.settings.heading.label" },
-    { "type": "textarea", "id": "description", "default": "Have a question about an item, want to sell your collection, or need help with an order? We'd love to hear from you.", "label": "t:sections.contact.settings.description.label" }
+    { "type": "text", "id": "eyebrow", "default": "Get in touch", "label": "Eyebrow text" },
+    { "type": "richtext", "id": "heading", "default": "<p>Contact <em>us</em></p>", "label": "Heading" },
+    { "type": "textarea", "id": "description", "default": "Have a question about an item, want to sell your collection, or need help with an order? We'd love to hear from you.", "label": "Description" }
   ],
   "blocks": [
     {
       "type": "channel",
-      "name": "t:sections.contact.blocks.channel.name",
+      "name": "Contact channel",
       "settings": [
-        { "type": "text", "id": "title", "default": "Email", "label": "t:sections.contact.blocks.channel.settings.title.label" },
-        { "type": "text", "id": "value", "default": "hello@firsteditionco.com", "label": "t:sections.contact.blocks.channel.settings.value.label" },
-        { "type": "text", "id": "note", "label": "t:sections.contact.blocks.channel.settings.note.label" }
+        { "type": "text", "id": "title", "default": "Email", "label": "Title" },
+        { "type": "text", "id": "value", "default": "hello@firsteditionco.com", "label": "Value" },
+        { "type": "text", "id": "note", "label": "Note" }
       ]
     }
   ],
   "max_blocks": 4,
   "presets": [
     {
-      "name": "t:sections.contact.presets.name",
+      "name": "Contact form",
       "blocks": [
         { "type": "channel", "settings": { "title": "Email", "value": "hello@firsteditionco.com", "note": "We reply within 24 hours" } },
         { "type": "channel", "settings": { "title": "Discord", "value": "Join our community", "note": "Live chat with collectors" } },

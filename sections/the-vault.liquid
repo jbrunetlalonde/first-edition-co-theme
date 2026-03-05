@@ -78,76 +78,76 @@
 
 {% schema %}
 {
-  "name": "t:sections.vault.name",
+  "name": "The Vault",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
       "default": "The Vault",
-      "label": "t:sections.vault.settings.eyebrow.label"
+      "label": "Eyebrow text"
     },
     {
       "type": "richtext",
       "id": "heading",
       "default": "<p>Grail <em>pieces</em></p>",
-      "label": "t:sections.vault.settings.heading.label"
+      "label": "Heading"
     },
     {
       "type": "text",
       "id": "link_label",
       "default": "View all grails",
-      "label": "t:sections.vault.settings.link_label.label"
+      "label": "Link label"
     },
     {
       "type": "url",
       "id": "link_url",
-      "label": "t:sections.vault.settings.link_url.label"
+      "label": "Link URL"
     }
   ],
   "blocks": [
     {
       "type": "grail",
-      "name": "t:sections.vault.blocks.grail.name",
+      "name": "Grail item",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "t:sections.vault.blocks.grail.settings.image.label"
+          "label": "Image"
         },
         {
           "type": "text",
           "id": "badge",
           "default": "GRAIL",
-          "label": "t:sections.vault.blocks.grail.settings.badge.label"
+          "label": "Badge"
         },
         {
           "type": "text",
           "id": "name",
           "default": "Charizard 1st Edition",
-          "label": "t:sections.vault.blocks.grail.settings.name.label"
+          "label": "Name"
         },
         {
           "type": "text",
           "id": "detail",
           "default": "Base Set 1999 - PSA 9",
-          "label": "t:sections.vault.blocks.grail.settings.detail.label"
+          "label": "Detail"
         },
         {
           "type": "text",
           "id": "price",
           "default": "$12,500",
-          "label": "t:sections.vault.blocks.grail.settings.price.label"
+          "label": "Price"
         },
         {
           "type": "text",
           "id": "last_sold",
-          "label": "t:sections.vault.blocks.grail.settings.last_sold.label"
+          "label": "Last sold price"
         },
         {
           "type": "url",
           "id": "link_url",
-          "label": "t:sections.vault.blocks.grail.settings.link_url.label"
+          "label": "Link URL"
         }
       ]
     }
@@ -155,7 +155,7 @@
   "max_blocks": 8,
   "presets": [
     {
-      "name": "t:sections.vault.presets.name",
+      "name": "The Vault",
       "blocks": [
         { "type": "grail", "settings": { "badge": "GRAIL", "name": "Charizard 1st Edition", "detail": "Base Set 1999 - PSA 9", "price": "$12,500", "last_sold": "$11,800" } },
         { "type": "grail", "settings": { "badge": "RARE", "name": "Black Lotus", "detail": "Alpha - HP", "price": "$18,000" } },

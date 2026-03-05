@@ -47,38 +47,38 @@
 
 {% schema %}
 {
-  "name": "t:sections.auth_badge.name",
+  "name": "Authentication badge",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
       "default": "Authenticity Guarantee",
-      "label": "t:sections.auth_badge.settings.eyebrow.label"
+      "label": "Eyebrow text"
     },
     {
       "type": "richtext",
       "id": "heading",
       "default": "<p>Every piece <em>verified</em></p>",
-      "label": "t:sections.auth_badge.settings.heading.label"
+      "label": "Heading"
     },
     {
       "type": "text",
       "id": "seal_text",
       "default": "Inspected, graded & guaranteed authentic",
-      "label": "t:sections.auth_badge.settings.seal_text.label"
+      "label": "Seal description"
     }
   ],
   "blocks": [
     {
       "type": "step",
-      "name": "t:sections.auth_badge.blocks.step.name",
+      "name": "Step",
       "settings": [
         {
           "type": "select",
           "id": "icon",
           "default": "shield",
-          "label": "t:sections.auth_badge.blocks.step.settings.icon.label",
+          "label": "Icon",
           "options": [
             { "value": "shield", "label": "Shield" },
             { "value": "eye", "label": "Eye" },
@@ -86,15 +86,15 @@
             { "value": "certificate", "label": "Certificate" }
           ]
         },
-        { "type": "text", "id": "title", "default": "Step", "label": "t:sections.auth_badge.blocks.step.settings.title.label" },
-        { "type": "textarea", "id": "description", "label": "t:sections.auth_badge.blocks.step.settings.description.label" }
+        { "type": "text", "id": "title", "default": "Step", "label": "Title" },
+        { "type": "textarea", "id": "description", "label": "Description" }
       ]
     }
   ],
   "max_blocks": 4,
   "presets": [
     {
-      "name": "t:sections.auth_badge.presets.name",
+      "name": "Authentication badge",
       "blocks": [
         { "type": "step", "settings": { "icon": "eye", "title": "Expert Inspection", "description": "Every card and game is hand-inspected by our team for authenticity, condition, and centering." } },
         { "type": "step", "settings": { "icon": "camera", "title": "Photo Documentation", "description": "High-resolution photos of front, back, and edges taken under controlled lighting." } },

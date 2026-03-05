@@ -83,50 +83,50 @@
 
 {% schema %}
 {
-  "name": "t:sections.time_machine.name",
+  "name": "Time Machine",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
       "default": "Time Machine",
-      "label": "t:sections.time_machine.settings.eyebrow.label"
+      "label": "Eyebrow text"
     },
     {
       "type": "richtext",
       "id": "heading",
       "default": "<p>Browse by <em>era</em></p>",
-      "label": "t:sections.time_machine.settings.heading.label"
+      "label": "Heading"
     }
   ],
   "blocks": [
     {
       "type": "era",
-      "name": "t:sections.time_machine.blocks.era.name",
+      "name": "Era",
       "settings": [
-        { "type": "text", "id": "year", "default": "1999", "label": "t:sections.time_machine.blocks.era.settings.year.label" },
-        { "type": "text", "id": "label", "default": "The OG Era", "label": "t:sections.time_machine.blocks.era.settings.label_text.label" },
-        { "type": "text", "id": "title", "default": "1999 - The Golden Year", "label": "t:sections.time_machine.blocks.era.settings.title.label" },
-        { "type": "textarea", "id": "description", "default": "Base Set Pokemon, N64 classics, the birth of modern collecting.", "label": "t:sections.time_machine.blocks.era.settings.description.label" },
-        { "type": "range", "id": "hue", "min": 0, "max": 360, "step": 10, "default": 40, "label": "t:sections.time_machine.blocks.era.settings.hue.label" },
-        { "type": "text", "id": "highlight_1", "label": "t:sections.time_machine.blocks.era.settings.highlight.label" },
-        { "type": "image_picker", "id": "highlight_1_image", "label": "t:sections.time_machine.blocks.era.settings.highlight_image.label" },
-        { "type": "url", "id": "highlight_1_url", "label": "t:sections.time_machine.blocks.era.settings.highlight_url.label" },
-        { "type": "text", "id": "highlight_2", "label": "t:sections.time_machine.blocks.era.settings.highlight.label" },
-        { "type": "image_picker", "id": "highlight_2_image", "label": "t:sections.time_machine.blocks.era.settings.highlight_image.label" },
-        { "type": "url", "id": "highlight_2_url", "label": "t:sections.time_machine.blocks.era.settings.highlight_url.label" },
-        { "type": "text", "id": "highlight_3", "label": "t:sections.time_machine.blocks.era.settings.highlight.label" },
-        { "type": "image_picker", "id": "highlight_3_image", "label": "t:sections.time_machine.blocks.era.settings.highlight_image.label" },
-        { "type": "url", "id": "highlight_3_url", "label": "t:sections.time_machine.blocks.era.settings.highlight_url.label" },
-        { "type": "text", "id": "cta_label", "default": "Shop this era", "label": "t:sections.time_machine.blocks.era.settings.cta_label.label" },
-        { "type": "url", "id": "cta_url", "label": "t:sections.time_machine.blocks.era.settings.cta_url.label" }
+        { "type": "text", "id": "year", "default": "1999", "label": "Year" },
+        { "type": "text", "id": "label", "default": "The OG Era", "label": "Era label" },
+        { "type": "text", "id": "title", "default": "1999 - The Golden Year", "label": "Title" },
+        { "type": "textarea", "id": "description", "default": "Base Set Pokemon, N64 classics, the birth of modern collecting.", "label": "Description" },
+        { "type": "range", "id": "hue", "min": 0, "max": 360, "step": 10, "default": 40, "label": "Color hue" },
+        { "type": "text", "id": "highlight_1", "label": "Highlight name" },
+        { "type": "image_picker", "id": "highlight_1_image", "label": "Highlight image" },
+        { "type": "url", "id": "highlight_1_url", "label": "Highlight link" },
+        { "type": "text", "id": "highlight_2", "label": "Highlight name" },
+        { "type": "image_picker", "id": "highlight_2_image", "label": "Highlight image" },
+        { "type": "url", "id": "highlight_2_url", "label": "Highlight link" },
+        { "type": "text", "id": "highlight_3", "label": "Highlight name" },
+        { "type": "image_picker", "id": "highlight_3_image", "label": "Highlight image" },
+        { "type": "url", "id": "highlight_3_url", "label": "Highlight link" },
+        { "type": "text", "id": "cta_label", "default": "Shop this era", "label": "CTA label" },
+        { "type": "url", "id": "cta_url", "label": "CTA link" }
       ]
     }
   ],
   "max_blocks": 10,
   "presets": [
     {
-      "name": "t:sections.time_machine.presets.name",
+      "name": "Time Machine",
       "blocks": [
         { "type": "era", "settings": { "year": "1993", "label": "MTG Origins", "title": "1993 - Magic Begins", "description": "Alpha, Beta, Unlimited. The birth of trading card games.", "hue": 260 } },
         { "type": "era", "settings": { "year": "1996", "label": "Pokemon Arrives", "title": "1996 - Pocket Monsters", "description": "Pokemon TCG launches in Japan. N64 debuts. Game Boy Pocket.", "hue": 50 } },

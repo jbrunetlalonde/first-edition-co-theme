@@ -73,46 +73,46 @@
 
 {% schema %}
 {
-  "name": "t:sections.drops.name",
+  "name": "Drop calendar",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
       "default": "Drop Calendar",
-      "label": "t:sections.drops.settings.eyebrow.label"
+      "label": "Eyebrow text"
     },
     {
       "type": "richtext",
       "id": "heading",
       "default": "<p>Upcoming <em>drops</em></p>",
-      "label": "t:sections.drops.settings.heading.label"
+      "label": "Heading"
     },
     {
       "type": "text",
       "id": "description",
       "default": "New arrivals and restocks. Set a reminder so you don't miss out.",
-      "label": "t:sections.drops.settings.description.label"
+      "label": "Description"
     }
   ],
   "blocks": [
     {
       "type": "drop",
-      "name": "t:sections.drops.blocks.drop.name",
+      "name": "Drop",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "t:sections.drops.blocks.drop.settings.image.label" },
-        { "type": "text", "id": "name", "default": "Mystery Drop", "label": "t:sections.drops.blocks.drop.settings.name.label" },
-        { "type": "text", "id": "description", "default": "Something big is coming...", "label": "t:sections.drops.blocks.drop.settings.description.label" },
-        { "type": "text", "id": "drop_date", "default": "2026-04-01T12:00:00", "label": "t:sections.drops.blocks.drop.settings.date.label" },
-        { "type": "text", "id": "price", "label": "t:sections.drops.blocks.drop.settings.price.label" },
-        { "type": "checkbox", "id": "sold", "default": false, "label": "t:sections.drops.blocks.drop.settings.sold.label" }
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "name", "default": "Mystery Drop", "label": "Name" },
+        { "type": "text", "id": "description", "default": "Something big is coming...", "label": "Description" },
+        { "type": "text", "id": "drop_date", "default": "2026-04-01T12:00:00", "label": "Drop date (ISO)" },
+        { "type": "text", "id": "price", "label": "Final price" },
+        { "type": "checkbox", "id": "sold", "default": false, "label": "Sold out" }
       ]
     }
   ],
   "max_blocks": 6,
   "presets": [
     {
-      "name": "t:sections.drops.presets.name",
+      "name": "Drop calendar",
       "blocks": [
         { "type": "drop", "settings": { "name": "Prismatic Evolutions Restock", "description": "Limited ETBs and booster bundles", "drop_date": "2026-04-15T12:00:00" } },
         { "type": "drop", "settings": { "name": "Retro N64 Lot", "description": "12 CIB games. Details soon.", "drop_date": "2026-03-28T12:00:00" } },

@@ -60,44 +60,44 @@
 
 {% schema %}
 {
-  "name": "t:sections.grading.name",
+  "name": "Condition grading",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
       "default": "Trust & Transparency",
-      "label": "t:sections.grading.settings.eyebrow.label"
+      "label": "Eyebrow text"
     },
     {
       "type": "richtext",
       "id": "heading",
       "default": "<p>Our <em>grading standard</em></p>",
-      "label": "t:sections.grading.settings.heading.label"
+      "label": "Heading"
     },
     {
       "type": "text",
       "id": "description",
       "default": "Every item is inspected and graded in-house. Here's what each condition grade means.",
-      "label": "t:sections.grading.settings.description.label"
+      "label": "Description"
     }
   ],
   "blocks": [
     {
       "type": "grade",
-      "name": "t:sections.grading.blocks.grade.name",
+      "name": "Grade level",
       "settings": [
         {
           "type": "text",
           "id": "code",
           "default": "NM",
-          "label": "t:sections.grading.blocks.grade.settings.code.label"
+          "label": "Grade code"
         },
         {
           "type": "text",
           "id": "label",
           "default": "Near Mint",
-          "label": "t:sections.grading.blocks.grade.settings.label_text.label"
+          "label": "Grade label"
         },
         {
           "type": "range",
@@ -106,33 +106,33 @@
           "max": 100,
           "step": 5,
           "default": 90,
-          "label": "t:sections.grading.blocks.grade.settings.percentage.label"
+          "label": "Quality percentage"
         },
         {
           "type": "textarea",
           "id": "description",
           "default": "Card shows minimal to no wear. Corners are sharp, surface is clean with no scratches visible to the naked eye.",
-          "label": "t:sections.grading.blocks.grade.settings.description.label"
+          "label": "Description"
         },
         {
           "type": "text",
           "id": "check_1",
-          "label": "t:sections.grading.blocks.grade.settings.check.label"
+          "label": "Checklist item"
         },
         {
           "type": "text",
           "id": "check_2",
-          "label": "t:sections.grading.blocks.grade.settings.check.label"
+          "label": "Checklist item"
         },
         {
           "type": "text",
           "id": "check_3",
-          "label": "t:sections.grading.blocks.grade.settings.check.label"
+          "label": "Checklist item"
         },
         {
           "type": "image_picker",
           "id": "example_image",
-          "label": "t:sections.grading.blocks.grade.settings.example_image.label"
+          "label": "Example photo"
         }
       ]
     }
@@ -140,7 +140,7 @@
   "max_blocks": 7,
   "presets": [
     {
-      "name": "t:sections.grading.presets.name",
+      "name": "Condition grading",
       "blocks": [
         { "type": "grade", "settings": { "code": "DMG", "label": "Damaged", "percentage": 10, "description": "Significant damage: tears, heavy creases, water damage, or missing pieces.", "check_1": "Major structural damage", "check_2": "May affect card identification", "check_3": "Playable with sleeves only" } },
         { "type": "grade", "settings": { "code": "HP", "label": "Heavily Played", "percentage": 25, "description": "Significant wear visible. Heavy edge whitening, creases, or surface scratches.", "check_1": "Noticeable creases or bends", "check_2": "Heavy edge wear", "check_3": "Surface scratches visible" } },

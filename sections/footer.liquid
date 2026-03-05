@@ -58,53 +58,53 @@
 
 {% schema %}
 {
-  "name": "t:sections.footer.name",
+  "name": "Footer",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "description",
       "default": "Authentic trading cards and retro video games. The trusted shop for collectors.",
-      "label": "t:sections.footer.settings.description.label"
+      "label": "Brand description"
     },
     {
       "type": "url",
       "id": "privacy_url",
-      "label": "t:sections.footer.settings.privacy_url.label"
+      "label": "Privacy policy URL"
     },
     {
       "type": "url",
       "id": "terms_url",
-      "label": "t:sections.footer.settings.terms_url.label"
+      "label": "Terms of use URL"
     }
   ],
   "blocks": [
     {
       "type": "menu",
-      "name": "t:sections.footer.blocks.menu.name",
+      "name": "Menu column",
       "settings": [
         {
           "type": "text",
           "id": "heading",
           "default": "Menu",
-          "label": "t:sections.footer.blocks.menu.settings.heading.label"
+          "label": "Column heading"
         },
         {
           "type": "link_list",
           "id": "menu",
-          "label": "t:sections.footer.blocks.menu.settings.menu.label"
+          "label": "Menu"
         }
       ]
     },
     {
       "type": "links",
-      "name": "t:sections.footer.blocks.links.name",
+      "name": "Link column",
       "settings": [
         {
           "type": "text",
           "id": "heading",
           "default": "Policies",
-          "label": "t:sections.footer.blocks.menu.settings.heading.label"
+          "label": "Column heading"
         },
         { "type": "text", "id": "link_1_label", "label": "Link 1 label" },
         { "type": "url", "id": "link_1_url", "label": "Link 1 URL" },
@@ -122,7 +122,7 @@
   "max_blocks": 4,
   "presets": [
     {
-      "name": "t:sections.footer.presets.name",
+      "name": "Footer",
       "blocks": [
         { "type": "menu", "settings": { "heading": "TCG Cards" } },
         { "type": "menu", "settings": { "heading": "Retro Games" } },

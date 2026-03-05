@@ -71,46 +71,46 @@
 
 {% schema %}
 {
-  "name": "t:sections.pulse.name",
+  "name": "Rarity Pulse",
   "tag": "section",
   "settings": [
     {
       "type": "text",
       "id": "eyebrow",
       "default": "Market Intelligence",
-      "label": "t:sections.pulse.settings.eyebrow.label"
+      "label": "Eyebrow text"
     },
     {
       "type": "richtext",
       "id": "heading",
       "default": "<p>Rarity <em>pulse</em></p>",
-      "label": "t:sections.pulse.settings.heading.label"
+      "label": "Heading"
     }
   ],
   "blocks": [
     {
       "type": "item",
-      "name": "t:sections.pulse.blocks.item.name",
+      "name": "Market item",
       "settings": [
-        { "type": "text", "id": "name", "default": "Charizard #4", "label": "t:sections.pulse.blocks.item.settings.name.label" },
-        { "type": "text", "id": "set", "default": "Base Set 1999", "label": "t:sections.pulse.blocks.item.settings.set.label" },
+        { "type": "text", "id": "name", "default": "Charizard #4", "label": "Name" },
+        { "type": "text", "id": "set", "default": "Base Set 1999", "label": "Set / details" },
         {
           "type": "select", "id": "trend", "default": "up",
-          "label": "t:sections.pulse.blocks.item.settings.trend.label",
+          "label": "Trend direction",
           "options": [
             { "value": "up", "label": "Trending up" },
             { "value": "down", "label": "Trending down" },
             { "value": "stable", "label": "Stable" }
           ]
         },
-        { "type": "text", "id": "trend_pct", "default": "+12%", "label": "t:sections.pulse.blocks.item.settings.trend_pct.label" },
-        { "type": "text", "id": "spark_data", "default": "0,45 25,38 50,40 75,30 100,28 125,22 150,18 175,12 200,8", "label": "t:sections.pulse.blocks.item.settings.spark_data.label" },
-        { "type": "text", "id": "our_price", "default": "$1,850", "label": "t:sections.pulse.blocks.item.settings.our_price.label" },
-        { "type": "text", "id": "market_price", "default": "$2,100", "label": "t:sections.pulse.blocks.item.settings.market_price.label" },
-        { "type": "text", "id": "last_sales", "default": "$2,050 / $1,950 / $2,200", "label": "t:sections.pulse.blocks.item.settings.last_sales.label" },
+        { "type": "text", "id": "trend_pct", "default": "+12%", "label": "Trend percentage" },
+        { "type": "text", "id": "spark_data", "default": "0,45 25,38 50,40 75,30 100,28 125,22 150,18 175,12 200,8", "label": "Sparkline data points" },
+        { "type": "text", "id": "our_price", "default": "$1,850", "label": "Our price" },
+        { "type": "text", "id": "market_price", "default": "$2,100", "label": "Market price" },
+        { "type": "text", "id": "last_sales", "default": "$2,050 / $1,950 / $2,200", "label": "Last 3 sale prices" },
         {
           "type": "select", "id": "verdict", "default": "below",
-          "label": "t:sections.pulse.blocks.item.settings.verdict.label",
+          "label": "Price verdict",
           "options": [
             { "value": "below", "label": "Below market" },
             { "value": "at", "label": "At market" },
@@ -123,7 +123,7 @@
   "max_blocks": 4,
   "presets": [
     {
-      "name": "t:sections.pulse.presets.name",
+      "name": "Rarity Pulse",
       "blocks": [
         { "type": "item", "settings": { "name": "Charizard #4", "set": "Base Set 1999 - LP", "trend": "up", "trend_pct": "+12%", "spark_data": "0,45 25,38 50,40 75,30 100,28 125,22 150,18 175,12 200,8", "our_price": "$1,850", "market_price": "$2,100", "last_sales": "$2,050 / $1,950 / $2,200", "verdict": "below" } },
         { "type": "item", "settings": { "name": "Pikachu ex #25", "set": "S&V 151 - NM", "trend": "stable", "trend_pct": "+2%", "spark_data": "0,25 25,24 50,26 75,25 100,24 125,25 150,23 175,24 200,25", "our_price": "$45", "market_price": "$48", "last_sales": "$46 / $50 / $44", "verdict": "below" } },
