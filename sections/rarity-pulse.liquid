@@ -42,15 +42,15 @@
 
         <div class="pulse-card-bottom">
           <div class="pulse-price-col">
-            <span class="pulse-label">{{ 'sections.pulse.our_price' | t }}</span>
+            <span class="pulse-label">Our price</span>
             <span class="pulse-our-price">{{ block.settings.our_price }}</span>
           </div>
           <div class="pulse-price-col">
-            <span class="pulse-label">{{ 'sections.pulse.market' | t }}</span>
+            <span class="pulse-label">Market</span>
             <span class="pulse-market-price">{{ block.settings.market_price }}</span>
           </div>
           <div class="pulse-price-col">
-            <span class="pulse-label">{{ 'sections.pulse.last_3' | t }}</span>
+            <span class="pulse-label">Last 3 sales</span>
             <span class="pulse-last-sales">{{ block.settings.last_sales }}</span>
           </div>
         </div>
@@ -58,9 +58,9 @@
         {%- if block.settings.our_price != blank and block.settings.market_price != blank -%}
           <div class="pulse-verdict pulse-verdict--{{ block.settings.verdict }}">
             {%- case block.settings.verdict -%}
-              {%- when 'below' -%}{{ 'sections.pulse.below_market' | t }}
-              {%- when 'at' -%}{{ 'sections.pulse.at_market' | t }}
-              {%- when 'above' -%}{{ 'sections.pulse.above_market' | t }}
+              {%- when 'below' -%}Below market
+              {%- when 'at' -%}At market
+              {%- when 'above' -%}Above market
             {%- endcase -%}
           </div>
         {%- endif -%}

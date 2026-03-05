@@ -9,10 +9,10 @@
   </div>
   {%- form 'customer', class: 'newsletter-form' -%}
     {%- if form.posted_successfully? -%}
-      <p class="newsletter-success" role="status">{{ 'sections.newsletter.success' | t }}</p>
+      <p class="newsletter-success" role="status">You're in! Watch your inbox for the latest drops.</p>
     {%- else -%}
       <input type="hidden" name="contact[tags]" value="newsletter">
-      <label for="NewsletterEmail-{{ section.id }}" class="visually-hidden">{{ 'sections.newsletter.email_label' | t }}</label>
+      <label for="NewsletterEmail-{{ section.id }}" class="visually-hidden">Email address</label>
       <div class="newsletter-field">
         <input
           id="NewsletterEmail-{{ section.id }}"
@@ -20,10 +20,10 @@
           type="email"
           name="contact[email]"
           autocomplete="email"
-          placeholder="{{ 'sections.newsletter.email_placeholder' | t }}"
+          placeholder="Your email address"
           required
         >
-        <button type="submit" class="newsletter-btn">{{ 'sections.newsletter.subscribe' | t }}</button>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
       </div>
       {%- if form.errors -%}
         <p class="newsletter-error" role="alert">{{ form.errors.messages['email'] | default: form.errors | join: ', ' }}</p>

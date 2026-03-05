@@ -4,17 +4,17 @@
 {%- endcomment -%}
 
 <div class="cb-trigger-wrap">
-  <button class="cb-trigger" id="cbTrigger" aria-label="{{ 'sections.collection_builder.open' | t }}">
+  <button class="cb-trigger" id="cbTrigger" aria-label="Open collection builder">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-    <span class="cb-trigger-label">{{ 'sections.collection_builder.title' | t }}</span>
+    <span class="cb-trigger-label">My Collection</span>
     <span class="cb-trigger-count" id="cbCount">0</span>
   </button>
 </div>
 
 <aside class="cb-drawer" id="cbDrawer" aria-hidden="true">
   <div class="cb-drawer-header">
-    <h3 class="cb-drawer-title">{{ 'sections.collection_builder.title' | t }}</h3>
-    <button class="cb-drawer-close" id="cbClose" aria-label="{{ 'sections.collection_builder.close' | t }}">&times;</button>
+    <h3 class="cb-drawer-title">My Collection</h3>
+    <button class="cb-drawer-close" id="cbClose" aria-label="Close">&times;</button>
   </div>
 
   <div class="cb-drawer-body" id="cbBody">
@@ -22,8 +22,8 @@
       <div class="cb-empty-icon">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M17.5 14v7M14 17.5h7"/></svg>
       </div>
-      <p>{{ 'sections.collection_builder.empty' | t }}</p>
-      <span class="cb-empty-hint">{{ 'sections.collection_builder.hint' | t }}</span>
+      <p>Your collection is empty</p>
+      <span class="cb-empty-hint">Add items from any product page</span>
     </div>
     <div class="cb-fan" id="cbFan"></div>
     <div class="cb-list" id="cbList"></div>
@@ -31,10 +31,10 @@
 
   <div class="cb-drawer-footer" id="cbFooter" style="display:none">
     <div class="cb-stats">
-      <span class="cb-stats-count" id="cbStatsCount">0 {{ 'sections.collection_builder.items' | t }}</span>
+      <span class="cb-stats-count" id="cbStatsCount">0 items</span>
       <span class="cb-stats-value" id="cbStatsValue"></span>
     </div>
-    <button class="btn-primary cb-share-btn" id="cbShare">{{ 'sections.collection_builder.share' | t }}</button>
+    <button class="btn-primary cb-share-btn" id="cbShare">Share collection</button>
   </div>
 </aside>
 <div class="cb-overlay" id="cbOverlay"></div>

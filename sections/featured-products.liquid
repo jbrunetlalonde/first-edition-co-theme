@@ -39,7 +39,7 @@
           </div>
         </a>
         <button type="button" class="product-add" data-product-id="{{ product.variants.first.id }}">
-          + {{ 'products.product.add_to_cart' | t }}
+          + Add to cart
         </button>
       </div>
     {%- else -%}
@@ -49,12 +49,12 @@
             <div class="product-holo"></div>
           </div>
           <div class="product-info">
-            <div class="product-set">{{ 'sections.featured_products.placeholder.set' | t }}</div>
-            <div class="product-name">{{ 'sections.featured_products.placeholder.name' | t }}</div>
-            <div class="product-condition">{{ 'sections.featured_products.placeholder.condition' | t }}</div>
+            <div class="product-set">Collection</div>
+            <div class="product-name">Product name</div>
+            <div class="product-condition">Near Mint</div>
             <div class="product-bottom">
               <span class="product-price">$0.00</span>
-              <span class="product-badge">{{ 'sections.featured_products.placeholder.badge' | t }}</span>
+              <span class="product-badge">NEW</span>
             </div>
           </div>
         </div>

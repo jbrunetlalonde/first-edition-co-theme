@@ -19,26 +19,26 @@
             <div class="drops-card-silhouette">?</div>
           {%- endif -%}
           {%- if block.settings.sold -%}
-            <div class="drops-sold-stamp">{{ 'sections.drops.sold' | t }}</div>
+            <div class="drops-sold-stamp">SOLD</div>
           {%- endif -%}
         </div>
         <div class="drops-card-info">
           <h3 class="drops-card-name">{{ block.settings.name }}</h3>
           <p class="drops-card-desc">{{ block.settings.description }}</p>
           {%- if block.settings.sold -%}
-            <div class="drops-card-final">{{ 'sections.drops.final_price' | t }}: {{ block.settings.price }}</div>
+            <div class="drops-card-final">Final: {{ block.settings.price }}</div>
           {%- else -%}
             {%- if block.settings.drop_date != blank -%}
               <div class="drops-countdown" data-countdown="{{ block.settings.drop_date }}">
-                <div class="drops-countdown-unit"><span data-days>--</span><small>{{ 'sections.drops.days' | t }}</small></div>
+                <div class="drops-countdown-unit"><span data-days>--</span><small>days</small></div>
                 <div class="drops-countdown-sep">:</div>
-                <div class="drops-countdown-unit"><span data-hours>--</span><small>{{ 'sections.drops.hours' | t }}</small></div>
+                <div class="drops-countdown-unit"><span data-hours>--</span><small>hrs</small></div>
                 <div class="drops-countdown-sep">:</div>
-                <div class="drops-countdown-unit"><span data-mins>--</span><small>{{ 'sections.drops.mins' | t }}</small></div>
+                <div class="drops-countdown-unit"><span data-mins>--</span><small>min</small></div>
               </div>
             {%- endif -%}
             <button class="drops-notify btn-ghost" data-drop-notify="{{ block.settings.name | handleize }}">
-              {{ 'sections.drops.notify_me' | t }}
+              Notify me
             </button>
           {%- endif -%}
         </div>

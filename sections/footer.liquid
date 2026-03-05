@@ -44,13 +44,13 @@
     {%- endfor -%}
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. {{ 'sections.footer.rights' | t }}</p>
+    <p class="footer-copy">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
     <div class="footer-legal">
       {%- if section.settings.privacy_url != blank -%}
-        <a href="{{ section.settings.privacy_url }}">{{ 'sections.footer.privacy' | t }}</a>
+        <a href="{{ section.settings.privacy_url }}">Privacy</a>
       {%- endif -%}
       {%- if section.settings.terms_url != blank -%}
-        <a href="{{ section.settings.terms_url }}">{{ 'sections.footer.terms' | t }}</a>
+        <a href="{{ section.settings.terms_url }}">Terms of use</a>
       {%- endif -%}
     </div>
   </div>

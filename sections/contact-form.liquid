@@ -26,33 +26,33 @@
       {%- form 'contact', class: 'contact-form' -%}
         {%- if form.posted_successfully? -%}
           <div class="contact-success">
-            <p>{{ 'sections.contact.success' | t }}</p>
+            <p>Thank you! We'll get back to you within 24 hours.</p>
           </div>
         {%- endif -%}
 
         <div class="contact-field">
-          <label for="ContactName" class="contact-label">{{ 'sections.contact.name' | t }}</label>
+          <label for="ContactName" class="contact-label">Name</label>
           <input type="text" id="ContactName" name="contact[name]" class="contact-input" required autocomplete="name">
         </div>
         <div class="contact-field">
-          <label for="ContactEmail" class="contact-label">{{ 'sections.contact.email' | t }}</label>
+          <label for="ContactEmail" class="contact-label">Email</label>
           <input type="email" id="ContactEmail" name="contact[email]" class="contact-input" required autocomplete="email">
         </div>
         <div class="contact-field">
-          <label for="ContactSubject" class="contact-label">{{ 'sections.contact.subject' | t }}</label>
+          <label for="ContactSubject" class="contact-label">Subject</label>
           <select id="ContactSubject" name="contact[subject]" class="contact-input">
-            <option value="General">{{ 'sections.contact.subjects.general' | t }}</option>
-            <option value="Order">{{ 'sections.contact.subjects.order' | t }}</option>
-            <option value="Authentication">{{ 'sections.contact.subjects.authentication' | t }}</option>
-            <option value="Selling">{{ 'sections.contact.subjects.selling' | t }}</option>
-            <option value="Other">{{ 'sections.contact.subjects.other' | t }}</option>
+            <option value="General">General inquiry</option>
+            <option value="Order">Order question</option>
+            <option value="Authentication">Authentication request</option>
+            <option value="Selling">I want to sell</option>
+            <option value="Other">Other</option>
           </select>
         </div>
         <div class="contact-field">
-          <label for="ContactMessage" class="contact-label">{{ 'sections.contact.message' | t }}</label>
+          <label for="ContactMessage" class="contact-label">Message</label>
           <textarea id="ContactMessage" name="contact[body]" class="contact-input contact-textarea" rows="6" required></textarea>
         </div>
-        <button type="submit" class="btn-primary contact-submit">{{ 'sections.contact.send' | t }}</button>
+        <button type="submit" class="btn-primary contact-submit">Send message</button>
       {%- endform -%}
     </div>
   </div>

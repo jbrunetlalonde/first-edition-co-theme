@@ -33,7 +33,7 @@
         </div>
         {%- if block.settings.example_image != blank -%}
           <div class="grading-detail-img">
-            <img src="{{ block.settings.example_image | image_url: width: 400 }}" alt="{{ block.settings.label }} {{ 'sections.grading.example' | t }}" loading="lazy" width="200" height="280">
+            <img src="{{ block.settings.example_image | image_url: width: 400 }}" alt="{{ block.settings.label }} example" loading="lazy" width="200" height="280">
           </div>
         {%- endif -%}
       </div>

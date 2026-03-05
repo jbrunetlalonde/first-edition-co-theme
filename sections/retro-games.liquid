@@ -38,7 +38,7 @@
           </div>
         </a>
         <button type="button" class="product-add" data-product-id="{{ product.variants.first.id }}">
-          + {{ 'products.product.add_to_cart' | t }}
+          + Add to cart
         </button>
       </div>
     {%- else -%}
@@ -46,9 +46,9 @@
         <div class="game-card">
           <div class="game-img-wrap game-bg-{{ i }}"></div>
           <div class="game-info">
-            <div class="game-platform">{{ 'sections.retro_games.placeholder.platform' | t }}</div>
-            <div class="game-name">{{ 'sections.retro_games.placeholder.name' | t }}</div>
-            <div class="game-condition">{{ 'sections.retro_games.placeholder.condition' | t }}</div>
+            <div class="game-platform">Platform</div>
+            <div class="game-name">Game title</div>
+            <div class="game-condition">CIB - Very good</div>
             <div class="game-bottom">
               <span class="game-price">$0.00</span>
             </div>

@@ -5,7 +5,7 @@
     {%- endif -%}
     <h1 class="section-title policy-title">{{ section.settings.heading }}</h1>
     {%- if section.settings.updated != blank -%}
-      <p class="policy-updated">{{ 'sections.policy.last_updated' | t }}: {{ section.settings.updated }}</p>
+      <p class="policy-updated">Last updated: {{ section.settings.updated }}</p>
     {%- endif -%}
     <div class="policy-body">
       {{ section.settings.body }}

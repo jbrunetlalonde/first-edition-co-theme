@@ -16,7 +16,7 @@
         <div class="pdp-loupe" aria-hidden="true">
           <div class="pdp-loupe-lens"></div>
         </div>
-        <div class="pdp-loupe-hint">{{ 'sections.product.hover_to_zoom' | t }}</div>
+        <div class="pdp-loupe-hint">Hover to zoom</div>
       </div>
 
       {%- if product.images.size > 1 -%}
@@ -33,7 +33,7 @@
     {%- comment -%} Right: Product Info {%- endcomment -%}
     <div class="pdp-info">
       <div class="pdp-breadcrumb">
-        <a href="{{ routes.root_url }}">{{ 'sections.product.home' | t }}</a>
+        <a href="{{ routes.root_url }}">Home</a>
         <span>/</span>
         {%- if product.collections.size > 0 -%}
           <a href="{{ product.collections.first.url }}">{{ product.collections.first.title }}</a>
@@ -47,7 +47,7 @@
 
       {%- if product.metafields.custom.condition != blank -%}
         <div class="pdp-condition-row">
-          <span class="pdp-condition-label">{{ 'sections.product.condition' | t }}:</span>
+          <span class="pdp-condition-label">Condition:</span>
           <span class="pdp-condition-value">{{ product.metafields.custom.condition }}</span>
           {%- if product.metafields.custom.grade_code != blank -%}
             <span class="pdp-grade-pill">{{ product.metafields.custom.grade_code }}</span>
@@ -65,7 +65,7 @@
       {%- comment -%} Authentication Badge inline {%- endcomment -%}
       <div class="pdp-auth-badge">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-        <span>{{ 'sections.product.verified' | t }}</span>
+        <span>First Edition Verified</span>
       </div>
 
       {%- form 'product', product -%}
@@ -86,9 +86,9 @@
 
         <button type="submit" class="btn-primary pdp-atc" {% unless product.available %}disabled{% endunless %}>
           {%- if product.available -%}
-            {{ 'products.product.add_to_cart' | t }}
+            Add to cart
           {%- else -%}
-            {{ 'sections.product.sold_out' | t }}
+            Sold out
           {%- endif -%}
         </button>
 
@@ -98,13 +98,13 @@
           data-product-name="{{ product.title | escape }}"
           data-product-price="{{ product.price | money }}"
           data-product-image="{{ product.featured_image | image_url: width: 200 }}">
-          {{ 'sections.product.add_to_collection' | t }}
+          Add to collection
         </button>
       {%- endform -%}
 
       {%- if product.description != blank -%}
         <div class="pdp-description">
-          <h3 class="pdp-desc-heading">{{ 'sections.product.description' | t }}</h3>
+          <h3 class="pdp-desc-heading">Description</h3>
           {{ product.description }}
         </div>
       {%- endif -%}

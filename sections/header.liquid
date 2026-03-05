@@ -1,7 +1,7 @@
 <nav>
   <a class="nav-logo" href="/">{{ shop.name | split: ' ' | first }} <span>{{ shop.name | split: ' ' | slice: 1 }}</span> {{ shop.name | split: ' ' | last }}</a>
 
-  <button class="nav-toggle" aria-label="{{ 'general.accessibility.menu' | t }}" aria-expanded="false">
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
     <span></span>
     <span></span>
     <span></span>
@@ -13,16 +13,16 @@
     {%- endfor -%}
     <li class="nav-links-cart">
       <a href="{{ routes.cart_url }}" class="nav-cart">
-        {{ 'general.cart.title' | t }} ({{ cart.item_count }})
+        Cart ({{ cart.item_count }})
       </a>
     </li>
   </ul>
 
   <div class="nav-actions">
     <a href="{{ routes.cart_url }}" class="nav-cart nav-cart--desktop">
-      {{ 'general.cart.title' | t }} ({{ cart.item_count }})
+      Cart ({{ cart.item_count }})
     </a>
-    <a href="{{ routes.cart_url }}" class="nav-cart-icon" aria-label="{{ 'general.cart.title' | t }}">
+    <a href="{{ routes.cart_url }}" class="nav-cart-icon" aria-label="Cart">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
       {%- if cart.item_count > 0 -%}<span class="cart-count">{{ cart.item_count }}</span>{%- endif -%}
     </a>

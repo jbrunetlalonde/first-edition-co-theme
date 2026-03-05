@@ -1,7 +1,7 @@
 <section class="coll-products">
   <div class="coll-toolbar">
     <div class="coll-filters">
-      <span class="coll-filter-label">{{ 'sections.collection_grid.filter' | t }}:</span>
+      <span class="coll-filter-label">Filter:</span>
       {%- for tag in collection.all_tags limit: 8 -%}
         {%- if current_tags contains tag -%}
           <a href="{{ tag | link_to_remove_tag: tag }}" class="coll-tag coll-tag--active">{{ tag }}</a>
@@ -11,7 +11,7 @@
       {%- endfor -%}
     </div>
     <div class="coll-sort">
-      <label for="coll-sort-select" class="visually-hidden">{{ 'sections.collection_grid.sort' | t }}</label>
+      <label for="coll-sort-select" class="visually-hidden">Sort by</label>
       <select id="coll-sort-select" class="coll-sort-select" onchange="window.location.href=this.value">
         {%- for option in collection.sort_options -%}
           <option value="{{ option.url }}" {% if collection.sort_by == option.value %}selected{% endif %}>{{ option.name }}</option>
@@ -49,14 +49,14 @@
           </div>
         </a>
         <button type="button" class="product-add" data-product-id="{{ product.variants.first.id }}">
-          + {{ 'products.product.add_to_cart' | t }}
+          + Add to cart
         </button>
       </div>
     {%- endfor -%}
   </div>
 
   {%- if paginate.pages > 1 -%}
-    <nav class="coll-pagination" aria-label="{{ 'sections.collection_grid.pagination' | t }}">
+    <nav class="coll-pagination" aria-label="Pagination">
       {{ paginate | default_pagination: next: '&rarr;', previous: '&larr;' }}
     </nav>
   {%- endif -%}

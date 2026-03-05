@@ -40,7 +40,7 @@
           <div class="vault-price-row">
             <span class="vault-price">{{ block.settings.price }}</span>
             {%- if block.settings.last_sold != blank -%}
-              <span class="vault-last-sold">{{ 'sections.vault.last_sold' | t }}: {{ block.settings.last_sold }}</span>
+              <span class="vault-last-sold">Last sold: {{ block.settings.last_sold }}</span>
             {%- endif -%}
           </div>
         </div>
@@ -49,7 +49,7 @@
   </div>
   <div class="vault-scroll-hint">
     <span class="vault-scroll-arrow">&larr;</span>
-    <span>{{ 'sections.vault.scroll_hint' | t }}</span>
+    <span>Scroll to explore</span>
     <span class="vault-scroll-arrow">&rarr;</span>
   </div>
 </section>
